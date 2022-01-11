@@ -1,0 +1,17 @@
+{
+  "author": {
+    "name": "ThePrimeagen",
+    "company": "TheStartup, Try Harder™"
+  },
+  "title": "Everything You'll Need to Know About Git",
+  "subtitle": "A Practical guide to using Git and prepare you to be the wizard of your team",
+  "frontendMastersLink": "https://frontendmasters.com/workshops/",
+  "social": {
+    "twitter": "theprimeagen",
+    "twitch": "theprimeagen",
+    "youtube": "theprimeagen"
+  },
+  "description": "The git walkthrough to make you prepared for the _real world_",
+  "keywords": ["ThePrimeagen", "Live Coding", "TypeScript", "JavaScript", "Git", "Github", "Algorithms", "DataStructures", "Data Structures", "TS"],
+  "productionBaseUrl": "/fem-git"
+}
