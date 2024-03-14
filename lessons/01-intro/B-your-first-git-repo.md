@@ -1,7 +1,30 @@
+---
+title: "Your First Git Repo"
+description: "Lets create and checkout git!"
+---
+
 ## Your First Git Repo
 I am sure for most of you this is not your first git repo, but to make sure
 that no one is confused, lets spend 5 minutes going over the basic commands of
 a git repo.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Configuring your git experience
 Before we begin, we need to configure git to contain _your_ information.  Every
@@ -10,14 +33,18 @@ credit and/or blame for all the wonderful code you add, we need to set our name
 and email!
 
 ### git config
-Before you do anything with git you want to be able to identify yourself to
-git.  The reason for this is that commits save information that includes who
-made the change.  That way if your most excellent code accidentally has a bug
-we will all know who to inquire when a fix is needed.
+Git comes with a config that is global, for all projects, and local, project
+level.  There are other git config levels, but they are irrelevant for the
+average git experience.  project level config overrides global level config as
+its more specific.
 
-Git comes with a config that is global and project level.  project level config
-overrides global level config as its more specific.
+This would be akin to javascript's `Object.assign`
 
+```javascript
+const config = Object.assign({}, globalConfig, localConfig);
+```
+
+#### Key Facts
 * All git config keys are in the following shape: `<section>.<key>`.
 * `--global` flag will ensure you set this key value for all future uses of git
 * `user.name` and `user.email` are the key's used in creating a commit tied to you
