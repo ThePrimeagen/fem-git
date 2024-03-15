@@ -232,6 +232,13 @@ level commands to really understand how git works.
 
 <br>
 <br>
+* index: I will use this term or staging area interchangeably.  From the github
+  blog
+
+> The Git index is a critical data structure in Git. It serves as the “staging area” between the files you have on your filesystem and your commit history. When you run git add , the files from your working directory are hashed and stored as objects in the index, leading them to be “staged changes”.
+
+<br>
+<br>
 * squash: to take several commits and turn it into one commit
   - technically a squash would be taking N commits and turning it into N - 1 to
   1 commit.  but typically its N commits to 1 commit
@@ -290,7 +297,6 @@ changes from or potentially push changes too.  Think github
 <br>
 
 * git is an acyclic graph, meaning the following cannot exist
-![Cycle](./00-no-cycles.png)
 
 <br>
 <br>
@@ -303,6 +309,11 @@ changes from or potentially push changes too.  Think github
 
 * if you delete _untracked_ files they are lost forever.  commit early, commit
 often, you can always change history to make it one commit (squashing)
+
+<br>
+<br>
+
+* `man git-<op>` for the friendly manual
 
 <br>
 <br>

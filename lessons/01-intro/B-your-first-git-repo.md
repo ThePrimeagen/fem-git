@@ -4,6 +4,11 @@ description: "Lets create and checkout git!"
 ---
 
 ## Your First Git Repo
+Its time to git with it
+
+<br>
+<br>
+
 I am sure for most of you this is not your first git repo, but to make sure
 that no one is confused, lets spend 5 minutes going over the basic commands of
 a git repo.
@@ -46,14 +51,50 @@ const config = Object.assign({}, globalConfig, localConfig);
 
 #### Key Facts
 * All git config keys are in the following shape: `<section>.<key>`.
-* `--global` flag will ensure you set this key value for all future uses of git
+* `--global` flag will ensure you set this key value for all future uses of git and repos
 * `user.name` and `user.email` are the key's used in creating a commit tied to you
 * to add a key value, execute `git config --add --global <key> "<value>"`
 * you can view any value of git config by executing `git config --get <key>`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Add your `user.name` and `user.email` _IF_ you don't already have values for
 them.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 Lets pretend that when i execute:
@@ -70,14 +111,76 @@ git config --add --global user.name "ThePrimeagen"
 git config --add --global user.email "the.primeagen@aol.com"
 ```
 
-### Creating a new rep
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Creating A New Repo
 The very first step of any project is to create a repo.  To create a repo we
 use `git init`.  There are some options to creating repos but they are out of
 the scope of this and largely will never be used in your entire career
 
+To create a new git repo you first have to create a new directory or use an
+existing one with no version control.
+
+Once inside the directory type `git init` and it will create a `.git` folder
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Create a new git repo at `/path/to/new/my-first-git-repo`.  Replace
 `/path/to/new` to your preferred project location.
+
+If you know what you are doing and have done this before i encourage you to
+follow along, we will be doing some exercises in this repo
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 The higher level steps are:
@@ -95,7 +198,7 @@ cd my-first-git-repo
 git init
 ```
 
-### Note
+#### Note
 If you have an unconfigured git default branch you may see the following notice
 
 ```bash
@@ -115,17 +218,67 @@ Initialized empty Git repository in /home/mpaulson/personal/my-first-git/.git/
 
 We will address config more holistically later on.
 
-### We did 2 things here
-1. configured git user name and email.
-1. we initialized a git repo in a custom location
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### Validate we created a git repo
+## The Files Are IN the Git Repo
 Every git repo comes with a directory that contains all of the state of the git
 repo.  This repo is found in `.git`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Validate that you have created a new git repo by listing out the files and
 directories in the git state directory.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -159,12 +312,30 @@ directories in the git state directory.
 .git/hooks/pre-receive.sample
 ```
 
-This is the empty git repo with all the files and sample code needed to get
-your config up and running
+You may not like this, but this is peak empty git repo with all the files and
+sample code needed to get your config up and running
 
-### Note
-Git keeps its memory by using a series of files and directories.  We will go
+#### Note
+Git keeps its state by using a series of files and directories.  We will go
 into more detail shortly
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### The Basics
 The next couple commands will be 80% of the commands you will execute when
@@ -172,14 +343,39 @@ using git.  80% of git is exceptionally easy.  Its the 20% that can get you
 into trouble :7
 
 * `git add <path-to-file | pattern>` will add zero or more files to _the index_
-(staging area)
+((staging area)staging area)
 * `git commit -m '<message>'` will commit what changes are present in _the
 index_.
 * `git status` will describe the state of your git repo which will include
 tracked, staged, and untracked changes.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 We want to trace the steps of git from untracked to tracked.
+
+#### Command reminder
+```
+git add <path-to-file | pattern>
+git commit -m '<message>'
+git status
+```
 
 * create a file `first.md`
 * check the status of git to see that its untracked.
@@ -187,6 +383,24 @@ We want to trace the steps of git from untracked to tracked.
 * check the status of git to see that its now tracked in the staging area
 * commit with a friendly message
 * check the status of git to see there are no changes pending or untracked
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 #### 1. Create a new file
@@ -196,6 +410,9 @@ vim first.md # or whatever editor you would like to use
 
 add a simple change
 
+<br>
+<br>
+
 #### 2. Check the status
 
 ```bash
@@ -204,6 +421,7 @@ git status
 
 You should see something similar to the following.  Noticed that we only have
 `untracked` files.  Meaning our git repo has no information on `first.md`
+
 ```bash
 ➜  my-first-git git:(master) ✗ git status
 On branch master
@@ -217,7 +435,10 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Lets stage first.md using the `git add` command
+<br>
+<br>
+
+#### 3. stage first.md
 
 ```bash
 git add first.md
@@ -227,7 +448,11 @@ With add you can use any glob to add files. Be careful, you may end up adding
 files you do not want to.  This will require you to unstage them before
 committing.
 
-Lets reexecute `git status` and see the result
+
+<br>
+<br>
+
+#### 4. validate the file is now staged
 
 ```bash
 ➜  my-first-git git:(master) ✗ git status
@@ -240,7 +465,10 @@ Changes to be committed:
         new file:   first.md
 ```
 
-Commit the file with git commit
+<br>
+<br>
+
+#### 5. commit
 
 ```bash
 git commit -m 'my first commit'
@@ -256,6 +484,24 @@ nothing to commit, working tree clean
 We have officially created our first commit!  Congrats if this is your first
 time.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### What Changes Are In A Repo
 A common activity of the 20% is to see what the past changes are within a repo.
 We will dive deeper into this operation later, but for now, lets scratch the
@@ -263,11 +509,66 @@ surface.
 
 `git log` has many options to make viewing of history a pleasant experience.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Review or Explore
 Review `man git-log` and search for `--graph` and `--decorate`.  Quickly find
 and read the description of each option
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Display the history of this repo with the `--graph` and `--decorate` option.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -290,3 +591,22 @@ If you don't know what a branch is, that is ok, we will get there.
 Unfortunately we only have one commit, therefore our `--graph` option is less
 impressive.  Don't worry we will make extensive use.  What does show up is the
 `*` showing the graph has only one node in the output
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
