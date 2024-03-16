@@ -12,10 +12,50 @@ This is where git branches come in.  They are _cheap_, virtually free, to
 create.  With our of understanding git internals this will become much more
 clear throughout this section
 
-### Before we create any branches
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
 Since we are in a new git repo, lets create our initial commit.  We will be
 using the `hello-git` you just created previously to test the `trunk` default
 branch setting
+
+I would like a `README.md` with one line, `A`, and a commit message of `A`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  hello-git git:(trunk) echo "A" > README.md
@@ -27,8 +67,55 @@ branch setting
  create mode 100644 README.md
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Creating branches
 Creating branches is easy
+
+```bash
+git branch foo
+```
+
+Will create a new branch named `foo`
+
+### Problem
+Try it out, create a branch named `foo`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  hello-git git:(trunk) git branch foo
@@ -37,15 +124,40 @@ Creating branches is easy
 
 Well... what happened?
 
-* A branch was created at the same point `trunk` is
+* A branch was created pointing to the commit as `trunk`
 * We remain on `trunk`
 
+### List out branches
 We can observe this by executing `git branch`.  `git branch` will display all
 of our local branches
 
 ```bash
-➜  hello-git git:(trunk) git branch
+git branch
 ```
+
+### Problem
+List out your branches.  How do you know what branch you are on?  Use `git log`
+with `--decorate` to see where the branches point at and prove that `foo`
+points to the same commit as `trunk`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 I see when executing this the following: (its its own screen)
 
@@ -69,23 +181,126 @@ Date:   Sun Jan 28 10:04:01 2024 -0700
 You will notice that the commit has `HEAD -> trunk, foo`.  foo is pointing to
 this commit.  A branch _POINTS_ to a commit, it is not a set of changes.
 
-#### Important note
-When you create a branch, the branch points to whatever commit you are
-currently on.  That means if you are on branch `brand-new-feature` and you
-create a new branch, `even-better-feature`, both `brand-new-feature` and
-`even-better-feature` will be pointing to the same commit
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-now lets checkout our newly created branch, `foo`, with `git checkout`
+### Switching branches
+You can switch branches easily in two ways
 
+```bash
+git switch <branch name>
+git checkout <branch name>
+```
+
+`checkout` is a more versatile operation and i am personally just in the habbit
+of using it.  You can use whatever you want / are comfortable with
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+switch to branch foo
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 ```bash
 ➜  hello-git git:(trunk) git checkout foo
 Switched to branch 'foo'
 ```
 
-#### Fun Fact
-you can use `git switch <branch-name>` to switch to an existing branch
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-And look at that, we are now on foo.  Lets make a change in foo!
+### Problem
+Now that you are `foo` lets create another commit with message `B` and a new
+line added to `README.md` of "B"
+
+Then do it again, except replace `B` with `C`
+
+When finished use `git log` with what options you want, to see if you can see
+some differences now!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  hello-git git:(foo) echo "B" > second.md
@@ -96,9 +311,6 @@ And look at that, we are now on foo.  Lets make a change in foo!
  1 file changed, 1 insertion(+)
  create mode 100644 second.md
 ```
-
-Lets make one more change to foo!
-
 
 ```bash
 ➜  hello-git git:(foo) echo "C" > second.md
@@ -137,9 +349,68 @@ Date:   Sun Jan 28 10:04:01 2024 -0700
 1. `trunk` is still at `A`.  Trunk has not been updated with this code
 
 #### Fun side-note
-Remember we used `--graph` when executing git log.  Try it now and see the
-difference!
+* try out `--graph` if you didn't!
+* try out `--oneline` if you haven't
+* try all three options together!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### You can delete branches
+If you create a branch and you wish to delete it you can use `-d` and `-D`.
+For more information read up in the git manual, `man git-branch`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Commits locked in...
 Ok, now that we have a branch full of changes... what do we do with it?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 

@@ -671,8 +671,9 @@ have to rename and push to their remotes.
 <br>
 <br>
 
-#### Lets try it out!
-Lets try creating a new git repository
+### Lets try it out!
+Lets try creating a new git repository.  You will want to do this part as we
+will use this project for the rest of the course.
 
 ```bash
 cd to/where/i/create/projects/at
@@ -688,4 +689,22 @@ Whatever name you have chosen should show up now as the default branch!
 Initialized empty Git repository in /home/mpaulson/personal/hello-git/.git/
 ➜  hello-git git:(trunk)
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
