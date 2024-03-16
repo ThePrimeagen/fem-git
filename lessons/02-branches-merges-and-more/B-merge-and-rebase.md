@@ -12,8 +12,51 @@ You have to have the previous section finished and have the same state
 A            trunk
 ```
 
-## Before we begin
-Lets create a couple new changes on `trunk`
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Lets start off by creating some more commits and adding them to `trunk`.  This
+way our branches diverge.  Meaning they have commits that are unique in both
+and have a common ancestor, `A`.
+
+
+Please add `D` and `E` in the same way we added `B` and `C` to `trunk`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  hello-git git:(foo) git checkout trunk
@@ -41,6 +84,24 @@ A --- D --- E trunk
 and our logs have commit messages that should make it easy to track.  So now we
 can talk about git merge and rebase
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Git Merge and Rebase
 
 ### Remember
@@ -49,29 +110,87 @@ A commit is a point in time with a specific state of the entire code base.
 We have work done, but its on another branch.  We need to get it back into our
 main branch, `trunk`... but how?
 
-Well there are two main strategies and lets talk about both of them: Merge and Rebase
+There really is only one strategy to `merge` code from one branch to another, but
+depending on the state different outcomes can happen.  `rebase` can help put a
+branch into a pristine state
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### What is a merge?
 
 A merge is attempting to combine two histories together that have diverged at
 some point in the past.  There is a common commit point between the two, this
-is referred to as the best common ancestor.
+is referred to as the best common ancestor ("merge base" is often the term used
+in the docs).
 
-To put it simply, the first in common parent is the best common ancestor, this
-is also called the "merge base"
+To put it simply, the first in common parent is the best common ancestor.
 
 git then merges the sets of commits onto the merge base and creates a new
-commit at the tip of the branch that is being merged on
+commit at the tip of the branch that is being merged on with all the changes
+combined into one commit.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### How to merge
-Merging is quite simple.  You state which branch you wish to merge into your
-current branch.  Therefore if you have `trunk` checked out and merged `foo` you
-would remain on trunk with a newly added merge commit and the contents of `foo`
-in `trunk`
+Merging is quite simple.
+
+The branch your on is the `target` branch and the branch you name in
+`<branchname>` will be the `source` branch.
 
 ```bash
 git merge <branchname>
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Problem
 Given the following state, merge `foo` onto `trunk`.  Since we want to keep
@@ -84,6 +203,25 @@ Please start by branching _off_ of `trunk`.  I named mine `trunk-merge-foo`
  /
 A --- D --- E trunk-merge-foo
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 
@@ -98,6 +236,18 @@ Switched to a new branch 'trunk-merge-foo'
 git branch trunk-merge-foo
 git checkout trunk-merge-foo
 ```
+
+#### Fun fact
+From `man git-switch` you can see the following:
+```
+       git switch [<options>] (-c|-C) <new-branch> [<start-point>]
+```
+
+Meaning we could of created a new branch by using `git switch -c
+trunk-merge-foo` and switched to it.
+
+<br>
+<br>
 
 lets merge in `foo` into `trunk-merge-foo`
 

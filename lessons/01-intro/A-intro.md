@@ -333,3 +333,74 @@ often, you can always change history to make it one commit (squashing)
 <br>
 <br>
 
+### A Warning
+A lot of you already have some level of git knowledge.  This is to be expected.
+
+* `push`
+* `pull`
+* `add`
+* `commit`
+
+Everything else... yikes
+
+<br>
+<br>
+
+This course is designed to take someone with zero knowledge and get them up to
+speed on git.  That means I will be interweaving simple items with complex
+items throughout this course.  If you try to skip a head you may miss out on a
+key conflict, or a way to use `git log` or `reflog`.
+
+The reality is if you are comfortable with
+
+* `rebase`
+* `rerere`
+* `reflog`
+* `log`
+* `cat-file`
+* `config`
+* `reset`
+
+this course is _probably_ not for you.  You already know the 97% of git.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Git has 149 possible manuals for using git, spanning hundreds upon hundreds of
+pages.  This course is not mean to be exhaustive, but what will make you not
+only productive at your job, but able to fix 99% of the "oh shit" moments you
+have with git
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
