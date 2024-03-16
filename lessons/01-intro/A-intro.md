@@ -404,3 +404,31 @@ have with git
 <br>
 <br>
 
+## Git State
+We will be doing some changes to the default settings throughout this course.
+
+```bash
+git config --get --global init.defaultBranch
+
+master
+
+git config --global --set init.defaultBranch master
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+

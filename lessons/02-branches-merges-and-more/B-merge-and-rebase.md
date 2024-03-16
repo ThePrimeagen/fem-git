@@ -197,6 +197,9 @@ Given the following state, merge `foo` onto `trunk`.  Since we want to keep
 `foo` and `trunk` in its current state for other problems later in this lesson.
 Please start by branching _off_ of `trunk`.  I named mine `trunk-merge-foo`
 
+Finally, when you are done use `git log` to see the resulting state of
+`trunk-merge-foo`
+
 #### State of your git
 ```
    B --- C    foo
@@ -282,13 +285,8 @@ Merge made by the 'ort' strategy.
  create mode 100644 second.md
 ```
 
-#### Lets understand the change through git log!
-So what has happened here?  The best way to understand is to use `git log`.
+Lets use `log` to check out what has happened here
 
-* `--oneline` condenses the extra information (such as author) out and shortens
-  the sha to len of 7.  Makes everything easier to read
-* `--decorate` shows where each of the branches are
-* `--graph` gives the nice ascii display of how your branches diverted and merged
 * `--parents` adds 1 to two extra shas signifying the parent chain.  This is
   duplicated by `--graph` but instead of a graphical representation, its with
   shas.
@@ -328,7 +326,23 @@ two commits together by finding the best common ancestor (merge base `cb75afe`)
 and playing the commits one at a time, start at `cb75afe`, creating a new
 commit, a merge commit, `ccf9a73`.
 
-## Fast Forward Merges
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Create the following git setup:
@@ -342,6 +356,24 @@ A --- D --- E           trunk
 That means:
 * branch `bar` off `trunk`
 * add two commits with message `X` then `Y`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 First checkout `trunk` then use `trunk` to create branch `bar`
@@ -380,15 +412,69 @@ we can verify that we have similar histories by using `git log` again.
 * cb75afe A
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Fast Forward Merges
-A ff merge (fast foward merge) happens when the branch you are merging has the
-same history as the current branch.  This allows for "merge commit" to be
-created.  Instead, a simple updating of branch pointer happens.
+A fast forward merge (denoted ff-merge) happens when the branch you are merging
+has the same history as the current branch.  In other words, the merge base is
+the tip of the branch you are merging onto.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 merge `bar` onto `trunk`.  Do not create a separate branch this time.  Once you
 merge see if you can spot the difference between a "3 way merge" vs a "fast
 forward" merge.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 First we simply checkout `trunk` then execute `git merge bar`
@@ -428,11 +514,23 @@ You can view this FF merge with `git log`
 * cb75afe A
 ```
 
-You can validate that with fast forward merging there is no merge commit.
-There is no need to find the best common ancestor because the best common
-ancestor is the last change in trunk so we can just apply the changes without
-worry.  In other words, the merge base is the same commit as `bar` is based off
-of
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Rebase
 Rebasing often gets a bad wrap. Part of this is because people don't really
@@ -456,9 +554,33 @@ point to `Y` instead of `A`.
 A --- D --- E --- X --- Y                         trunk
 ```
 
+### THAT IS IT
+That is all rebase does here.  It updates the commit where the branch
+originally points to
+
 This also means that in we decide to merge `foo` into `trunk` we can do a
 ff-merge!
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### What Rebase Does
 The basic steps of rebase is the following:
 
 1.  execute `git rebase <targetbranch>`.  I will refer to the current branch as
@@ -467,11 +589,52 @@ The basic steps of rebase is the following:
 1.  play one commit at a time from `<currentbranch>`
 1.  once finished will update `<currentbranch>` to the current commit sha
 
+It is important to think about what goes on in a rebase.  Why it does what it
+does and how there may be problems with it down the road.
+
+We will address that later
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
-rebase `foo` with `trunk`.  Please create a separate branch `trunk-merge-foo`.
-This branch should be created off of `foo`.  Once you have rebased `foo` with
-`trunk` check out the git logs with `--graph` and `--decorate` to see what has
-happened
+rebase `foo` with `trunk`.  Please create a separate branch `foo-rebase-trunk`.
+This branch should be created off of `foo`.  Once you have rebased
+`foo-rebase-trunk` with `trunk` check out the git logs with `--graph` and
+`--decorate` to see what has happened
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 First we will create a new branch off of `foo` and call it `foo-rebase-trunk`
@@ -510,13 +673,32 @@ is now the new base for `foo-rebase-trunk`.  In other words, `foo` is no longer
 diverging from `trunk`.  If we choose to merge `foo` into `trunk` we can do so
 via ff-merge (no merge commit).
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Some pros
 When using rebase you can have a clean history with no merge commits.  If you
 are someone who uses `git log` a lot this can really help with searching.
 
 ### Some cons
 It alters history of a branch.  That means that if you already had `foo` on a
-remote git, you would have to `force` push it to the remote again.
+remote git, you would have to `force` push it to the remote again.  We will go
+over this more it shortly
 
 ### Some cautionary words
 NEVER CHANGE HISTORY OF A PUBLIC BRANCH.  In other words, don't ever change
@@ -524,4 +706,21 @@ history of `trunk`.  But your own personal branch?  I don't think it matters
 and i think having a nice clean history can be very beneficial if you use git
 to search for changes through time.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
