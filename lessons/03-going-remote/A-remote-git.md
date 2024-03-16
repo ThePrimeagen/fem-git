@@ -1,6 +1,6 @@
 ---
-title: "Git push and pull"
-description: "Remote git is pretty easy!"
+title: "Remote"
+description: "Sometimes my problems are just one pull away"
 ---
 
 ## Git pull
@@ -8,11 +8,74 @@ Often we need code changes that have been created by our fellow frienemies.
 But how do we get their changes into our repo?  Or how do we push our changes
 to someone else repo?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### It doesn't have to be remote...
 Often we think of remote repos as github or gitlab, but it doesn't have to be
 that way.
 
-First lets create a new git repo
+If you have never used git, maybe remote is an odd term.
+
+A remote is simply a copy of the repo _somewhere else_.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Create a new repo, `remote-repo`.  Lets initialize it as an empty git repo using
+`git init`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
+
 ```bash
 ➜  hello-git git:(trunk) cd /path/to/project
 git init remote-git
@@ -22,11 +85,74 @@ Initialized empty Git repository in /path/to/project/remote-git/.git/
 ➜  remote-git git:(trunk)
 ```
 
-Remember, git is a _distributed_ version control system.  So the first thing we
-need to do is set a `remote` git in our repo
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+### Distributed Version Control
 * A remote is just another git repo that is of the same project and has changes
   we may need.
+
+To add a remote the syntax is:
+
+```
+git remote add <name> <uri>
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Add `hello-git` as a remote.  You should name it `origin`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  remote-git git:(trunk) git remote add origin ../hello-git
