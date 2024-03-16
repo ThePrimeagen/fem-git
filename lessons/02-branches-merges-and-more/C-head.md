@@ -3,6 +3,27 @@ title: "HEAD"
 description: "Why do we keep seeing this?"
 ---
 
+## HEAD
+Yes.. that weird word... potentially scary that you see everywhere in git
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 Throughout this course you may have notice that whenever we call `git log`
 there a `HEAD` within the logs.
 
@@ -30,8 +51,71 @@ Switched to branch 'foo'
 ...         ^--- we currently have foo checkedout
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Reflog
+Its not just a wizards tool
+
 Introducing `git reflog`.  The default command of `git reflog` allows you to
 see where head has been.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Thought Exercise
+Give `reflog` command a try.  What do you see.  Think about what you have had
+checked out.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Answers
 
 ```bash
 ➜  hello-git git:(trunk) git reflog
@@ -45,14 +129,57 @@ d810248 HEAD@{4}: rebase (pick): B
 ...
 ```
 
+<br>
+<br>
+
+If you look carefully you will see every checkout you have done of any branch
+is listed, in time based ordering
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 This will be an interesting set of tasks to do, but can be quite useful in
 understanding reflog.
 
 1. create a new branch off of trunk, call it `baz`.
 1. add one commit to `baz`.  Do it in a new file `baz.md`
-1. switch back to `trunk` and delete `baz`
-1. restore `baz`
+1. switch back to `trunk` and delete `baz` (`git branch -D baz` from earlier)
+1. can you bring back from the dead the commit sha of `baz`?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 First thing we will do is create the baz branch then add a commit to it
@@ -92,9 +219,45 @@ b23e632 (HEAD -> trunk, bar) HEAD@{2}: checkout: moving from trunk to baz
 Now that we see `f330d23` is our target commit, what can we do to recover the
 work?  There are a lot of possibilities.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Use our knowledge of how git plumbing works to retrieve the contents of a
 commit, use this super power to grab out the file `baz.md`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 To get the information we need we will have to use the commit to get the tree
@@ -122,6 +285,24 @@ Baz
 
 Pure wizardry
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Lets not use the internals, what is another way, using the commands we have
 gone over thus far to get the same information.
@@ -145,6 +326,24 @@ If histories have diverged far enough, this could cause some problems as you
 wouldn't just be merging the one commit, but all the commits in betwixt f330d23
 and trunk
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Cherry Pick
 from `man git-cherry-pick`
 
@@ -154,8 +353,46 @@ from `man git-cherry-pick`
        HEAD commit).
 ```
 
-This is a pretty simple operation.  You provide a sha and cherry-pick attempts
-to merge just those changes into the current branch.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Git cherry-pick a try and see if you can also get the changes from baz into trunk
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  hello-git git:(trunk) git cherry-pick f330d23
@@ -166,3 +403,22 @@ to merge just those changes into the current branch.
 ```
 
 I have used cherry pick a _ton_ of times throughout my career as a software dev
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
