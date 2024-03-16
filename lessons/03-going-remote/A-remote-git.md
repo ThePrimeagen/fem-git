@@ -161,9 +161,52 @@ origin  ../hello-git (fetch)
 origin  ../hello-git (push)
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Gitism
+There are two naming conventions i have seen:
+
+### Remote is project repo
 typically when you have a remote git repo its called `origin`.  This is the
 _source of truth_ repo.
+
+### Remote is your fork of repo
+sometimes you have _your_ remote repo (fork), which you will name `origin` and
+you have the project repo which is typically named `upstream`.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### NOTICE:
 Earlier we set our git default branch name to `trunk` notice that it remained
@@ -172,13 +215,67 @@ even on this new project.
 Now we need to `merge` in the changes from `hello-git` into _our_ new repo
 `remote-git`.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Fetch
 we can fetch all the git state from our remote repository by executing `git
 fetch`.  This wont update the current branches checked out, just where the
 `origin/*` has them set to.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Try fetching all the branches from `hello-git` by using `git fetch`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -199,13 +296,49 @@ From ../hello-git
 Now those branches should look familiar considering we just got done making
 them!
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Using `git log` can you verify that the remote's trunk has been correctly
 merged into our git state but the current trunk we have checked out is not up
 to date?
 
-### Solution
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+
+### Solution
 First we can see our trunk has no commits
 ```bash
 ➜  remote-git git:(trunk) git log
@@ -229,22 +362,77 @@ cb75afe A
 Notice the branch names pointing to commit `b23e632` are `origin/trunk` and
 `origin/bar`.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### NOTICE
 if we wish to see what `branch`es came down with `git fetch` we can execute
 `git branch -a` (git branch all) to see all branches that currently exist.
+<br>
+<br>
 
-Anytime you see a branch that is origin/<name> it means that it is the last
-known state of the `origin` repo's `branch`.  The `origin` may have updated but
-that doesn't mean you have to fetch those changes.
+Anytime you see a branch that is `<remote>/<name>` it means that it is the last
+known state of the `<remote>` repo's `<name>` (branch).  Practically what this
+means is that at any moment you are likely out of sync with your remote.  That
+is ok.  That is the wonders of git.  You don't have to update, you can use
+yours until you are ready to fetch in changes.  Now convenience is a real
+thing.  I try to update regularly.  The large the out of sync is, the
+likelihood of conflict goes north
 
-Branches specified with `origin/<name>` are in the form of `<remote>/<name>`.
-That means if you had a remote named `billy` you could have `billy/trunk`
-
-Lets update our `trunk` with `origin`'s  But how do we do this?
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
-You know how to merge and rebase.  merge the origin/trunk with our current
-trunk
+Lets update our `trunk` with `origin/trunk`.  Then lets use `git log` to
+validate those commits have been merged
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -265,6 +453,24 @@ cb75afe A
 
 You will now see that our local `trunk` matches our `origin/trunk`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Git pull
 Fetching is always a good idea.  It keeps your local repo's remotes up to date,
 but it doesn't alter your state.
@@ -276,11 +482,48 @@ into your branch.  This can be done with one convenient command, `git pull`
 git pull <remote> <branch>
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 1. Add a line at the end of `README.md` in `hello-git` and commit it with message
    `A remote change`.
 1. Execute `git pull` in `remote-git`
 1. Think about the error.  Why does it exist?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -327,6 +570,48 @@ without specifying the target branch.  Git assumes that just because two
 branches have the same name doesn't mean they are the same.  So you need to
 tell git to track branches manually _on preexisting branches_.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Read the error again and figure out how to "track" the remote branch.  Once you
+execute the command then `git push` to the origin.  Use the tracking command
+that does not involve `git push`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 
 ```bash
 ➜  remote-git git:(trunk) git branch --set-upstream-to=origin/trunk trunk
@@ -345,20 +630,75 @@ re-fetch, but instead we simply merged with a "fast forward" merge strategy.
 Remember all of our merge and rebase talk?  Well now it really applies here.
 We were able to fast forward merge because we made no changes to trunk.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Think about Github
 Hopefully this gives you some insight into what is actually happening with
 github/gitlab/stash.  Its just another repo that everyone has agreed to commit
 to
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### What about rebase?
 Typically whenever I pull in changes from the remote authority repo I will
 `rebase` the changes.  I do not like adding in a bunch of merge commits.  This
 is a personal preference, but I think its a superiour one :)
 
-My basic defense why this is good is that your changes should always be
-programmed against what is already in the remote.  If the remote changes, pull,
-test, push.
+- A long lived branch with a bunch of merge commits is much more difficult to revert.
+- If every change is a single commit, then the ability to revert is very trivial.
+- I prefer to test my changes against the current state of master not against the current state i have fetched
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### There is a config for it
 There are two strategies for `rebase`ing changes.
 
 1. add --rebase flag to a pull.  `git pull --rebase`
@@ -372,6 +712,24 @@ There are two strategies for `rebase`ing changes.
 Now we rebase remote code every time.  You don't have to set this if you don't
 like the idea of rebasing from authority
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Git push
 The opposite of pull?
 
@@ -384,17 +742,36 @@ name.
 
 Lets make some changes to `bar` and push them to `hello-git`
 
+#### Fun Facts
+* `git push <remote> <local_name>:<remote_name>` allows you to push and have it received with a different name
+* `git push <remote> :<remote_name>` will delete a branch on the remote
+
 ### Problem
 Create a single commit, "CHANGE FROM REMOTE", as a one line change to the end
-of README.md to branch `bar`
+of README.md to branch `bar`.  Then push the changes back to `hello-git`
 
-Once you push, validate the changes on `hello-git`
+validate the change made it to `hello-git`'s `bar` branch
 
-```bash
-➜  remote-git git:(bar) echo "Change from remote" >> README.md
-```
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
+
 ```bash
 ➜  remote-git git:(trunk) git checkout bar
 Branch 'bar' set up to track remote branch 'bar' from 'origin'.
@@ -440,3 +817,22 @@ cb75afe A
 ```
 
 Well look at that!  We are sharing changes now!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
