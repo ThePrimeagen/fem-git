@@ -7,6 +7,24 @@ description: "Sometimes you just need to stash some changes"
 I will often say the phrase _upstream_ to refer to `hello-git`.  This is
 because i am treating `hello-git` similar to `github`.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## A Problem We All Face
 You have made a change... but you need to pull in changes from a remote repo,
 what do you do?
@@ -15,6 +33,24 @@ what do you do?
 2. stash, pull, pop?
 3. worktrees (such foreshadowing)
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### The problems of merge and #1
 If you create a commit with changes that are half baked just to pull in
 origin changes you will have your (potentially) broken commit, a merge
@@ -22,14 +58,33 @@ commit, then your fixing commit.  If you need to revert these changes, it will
 get more difficult (more on reverting later).
 
 ### This is a good case for rebase
-Your changes with rebase, as discussed earlier, will get put on top of all the
-incoming changes which allows your partial commit easier to work with
+Your changes with rebase, will get put on top of all the incoming changes which
+allows your partial commit easier to work with.  This style also makes
+squashing easier
 
 ### But i would rather have my partial commit not committed yet
 This is where stash comes in.
 
 ### Worktrees
 Often the superior approach and we will discuss them later
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Stash
 `git stash` will take every change _tracked_ by git (change to index + change
@@ -65,6 +120,25 @@ git stash pop --index <index> # works well with git stash list
 `man git-stash` is your friend.  if you forget how a command works, please
 review the manual first!  Its the authority of how to use the tool
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Now that you know what a stash is, and how to use it, lets try to see its value.
 
@@ -75,15 +149,34 @@ This will be quite a few steps, but you got this.
 echo "upstream change" >> upstream.md
 ```
 
-1. add a small change to `remote-git`
+2. add a small change to `remote-git`  don't commit
 ```bash
 echo "upstream change" >> upstream.md
 ```
 
-1. now that we have an active tracked change in our worktree, pull in the
+3. now that we have an active tracked change in our worktree, pull in the
    upstream change
 
 **What error do you get?**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 1. create the origin changes
@@ -134,6 +227,26 @@ error: please commit or stash them.
 error: cannot pull with rebase: You have unstaged changes.
 error: please commit or stash them.
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 ### Problem
 Now that we have produced the error and the answer is clear: use stash.
@@ -231,13 +344,50 @@ Fast-forward
  create mode 100644 upstream.md
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Now we need to get back our original changes.  Please pop the changes of our
-_first_ stash.
+_first_ stash.  Remember the stash is a stack like data structure.  Therefore
+your first change isn't the first item in the stash
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
-We need to use `pop` and `--index` to accomplish this.  Remember a stack is
-_First In First Out_ data structure.
+We need to use `pop` and `--index` to accomplish this.
 
 ```bash
 ➜  remote-git git:(trunk) git stash pop --index 1
@@ -260,6 +410,43 @@ Stashing is quite powerful and allows you to be able to bring in upstream
 changes without losing your work or creating commits which can be annoying to
 deal with!
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Worktrees
 We will talk more about these, but generally this is my favorite way to work in
 a fast evolving codebase
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
