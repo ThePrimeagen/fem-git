@@ -1779,8 +1779,47 @@ rerere stands for REuse REcorded REsolution.  Or in other words, git will
 automagically remember how you handled a specific conflict and will just replay
 your decision the next time you run into it.
 
+It is not all sunshine and rainbows.  You can, refer to `man git-rerere`,
+delete rerere's in case you incorrectly resolved a conflict
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Resolve the conflict and accept _our_ change, `A + 5`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -1809,11 +1848,47 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Successfully rebased and updated refs/heads/trunk.
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 To test out our rerere, lets create one more change to `hello-git` and see if
 we can auto play the conflict resolution
 
 For this add a small change to `upstream.md`.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -1856,14 +1931,50 @@ fac2b82 A + 6
 
 Lets go!  Our conflict this time was auto played for us!
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Ours and Theirs
 Sometimes during a conflict you just want to choose the entire file from one
 side or the other of a conflict.  Typically in an editor this is a very simple
 task, but it can as easily be done from the command line.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Ours Vs Theirs
-Ours represents the change we have and theirs represents the change the
-incoming branch has.
+Ours represents the current branches change and theirs represents the change
+the incoming branch has.
 
 To select theirs or ours use the following checkout command
 ```bash
@@ -1871,11 +1982,48 @@ git checkout --ours README.md #use "ours" change
 git checkout --theirs README.md #use "theirs" change
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem / Setup
 Lets create a conflict again, in README.md
 1. `remote-git` make it `A + 7`
 1. `hello-git` make it `A + 8`
 1. merge from upstream and resolved the conflict with "ours"
+1. validate you have merged the changes via git log
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 ### Solution
@@ -1959,6 +2107,24 @@ You can even see the change in the log for A + 8, but we still maintain 7
 |/
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### A good reminder
 1. you don't want to mix merge and rebase.  I typically just try to stick with
    rebasing my branch and ff-merge on public branches.
@@ -1968,6 +2134,24 @@ You can even see the change in the log for A + 8, but we still maintain 7
 Lets do this again, but use rebase.  But before we do, since have mixed merge
 and rebase, lets push our changes to `hello-git` or else things will get hairy
 quickly.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 #### Don't forget
 Don't forget to change branches in hello-git
@@ -1990,6 +2174,24 @@ To ../hello-git
    f5b13f5..ec6930d  trunk -> trunk
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Perform the same task as before except with rebase
 
@@ -1997,6 +2199,24 @@ Perform the same task as before except with rebase
 1. `hello-git` make it `A + 10`
 1. rebase from upstream and resolved the conflict with "ours."
 1. do not `git rebase --continue`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 remote-git
@@ -2060,6 +2280,25 @@ downstream change
 wait... a second.  That isn't the contents we wanted!  We wanted _ours_.  What
 happened?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Note
 Well remember the rebase operations
 
 1. checkout the branch we are _rebasing on_. (that means checkout hello git)
@@ -2073,8 +2312,44 @@ It is the easiest part of git to screw up and i personally remember it as
 "rebase is backwards."  Or you can remember the steps of rebase and come to the
 same conclusion.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Instead of using `ours` use `theirs` then `--continue` the rebase.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -2096,15 +2371,72 @@ nice
 
 git add && rebase --continue to move on
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Interactive Rebase
 There is ackshually more to rebase?  Yes.  Lets talk about interactive rebases,
 which are quite useful.  The primary use case is squashing which can be very
 nice for history
 
+you can also edit individual commit messages and more, but i haven't ever
+really done that in my 10+ years of git'ing
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Setup the repo with 3 sample commits on `remote-git`.  To make things easy,
 make the commit message something like "added 1 to the end" and add 1 to the
 end of `README.md`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -2138,6 +2470,24 @@ downstream change
 3
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Interactive Rebase Steps
 To begin an interactive rebase we need to provide a point in time to rebase
 with.  Typically, the simplest way to do this is with `HEAD~<number>`.
@@ -2145,22 +2495,68 @@ with.  Typically, the simplest way to do this is with `HEAD~<number>`.
 use `HEAD~3` to select the base where we were before our 3 commits.
 
 ```bash
-git rebase -i <commit>
+git rebase -i <commitish>
 ```
 
-That means rebase <commit>, interactively, to the current commit (`HEAD` in
-this case)
+That means rebase `<commitish>`, interactively, to the current commit (`HEAD`
+in this case)
 
 You will be presented an editor with all the options.  Read them carefully.
+
+#### Commitish?
+Yes, an odd word, but it makes sense when you think about it.  There is a whole
+language to describe commits, HEAD~1 is a very common version of this.
+
+That means with rebase you could provide the exact commit, or a relative path
+to the commit hash (HEAD~1)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 `SQUASH` the three commits you made into one commit.  This will require you to
 execute the rebase command, a `HEAD~<number>`, and read the text that appears
 to understand how to squash.  It may take one or more tries.  Remember, if you
-goof up you can always use reflog to get back to where commit you were at.
+goof up you can always use reflog to get back to the original commit you
+started at.
+
+validate that you have created a squashed commit out of the 3 commits
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
-Now lets execute the following:
+execute the following:
 ```bash
 git rebase -i HEAD~3
 ```
@@ -2314,3 +2710,46 @@ effective technique to keep the history clean and allow you to make many small
 commits throughout your dev cycle, preventing loss work, and then one clean
 commit for reviewers.  I personally think this is one of the best ways to go
 about developing.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### My general workflow
+1. many small commits with a message "SQUASHME: <message>"
+1. at the end of the dev cycle, i squash and give a proper message
+1. PR with a singular commit
+1. before i PR i ensure i am at the tip of the branch and that any CI runs against latest master changes
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
