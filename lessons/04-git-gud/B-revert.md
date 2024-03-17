@@ -12,15 +12,69 @@ previous commit, but instead we are removing an entire commit from the graph.
 
 If the commit is matter, this is the anti-matter move
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Git Revert
 Reverting is simple.  You just need to provide the commit(ish).
 ```bash
 git revert <commitish>
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
-Navigate to `hello-git` project and remove commit with log message `E`.  Before
+Navigate to `hello-git` project and revert commit with log message `E`.  Before
 removing it, check the contents of the commit via `log` with `-p`!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -84,7 +138,25 @@ hint: To abort and get back to the state before "git revert",
 hint: run "git revert --abort".
 ```
 
-#### HALT
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### HALT
 Yes, conflicts  can happen while reverting. Lets fix the conflict and finish
 this revert.  Resloving them are a lot like rebase.  figure out the code you
 want to keep and `git revert --continue`
@@ -129,6 +201,50 @@ and the other contains nothing (our revert commit).
 
 This means that git cannot tell how to revert this commit cleanly.  We can help
 by keeping the contents below E but removing E
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Finish the revert by fixing the conflict then use `git revert --continue`
+
+use git log to see what the revert looks like
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
+Merge conflict fixed
 
 ```bash
 A + 10
@@ -188,3 +304,22 @@ index eb42c13..38dc2c1 100644
  remote-change
  downstream change
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
