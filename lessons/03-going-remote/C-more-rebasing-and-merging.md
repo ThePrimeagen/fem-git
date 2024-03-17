@@ -27,7 +27,23 @@ Assuming everything went off without a hitch, you will have the following state
 A - B - C - D              master
 ```
 
-If you need a refresher, please check out 05-merge-and-rebase
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Interactive Rebasing and Squashing
 You may find yourself on a team that asks you to "squash" your commits.  What
@@ -57,21 +73,77 @@ provide some proper messaging!
 
 But to get there we need to cover a LOT of ground
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Conflicts
 I hate them
 You hate them
 but its good to know how to resolve them.
 
+#### PLEASE
 A note for all who have a nice git plugin to make this process easier.  Please
 do not use any fancy tools, lets just manually resolve these.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### To create a conflict
 The easiest way to create a conflict is when you have two changes to a repo
-that cannot be resolved by the merging strategies
+that cannot be resolved by the merging strategies.  In other words, edit the
+same line.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Create a conflict with `remote-git` and `hello-git`.  To do this, please create
-a commit in both `hello-git` and `remote-git` edtiing the same location within
+a commit in both `hello-git` and `remote-git` editing the same location within
 a file.
 
 To accomplish this
@@ -80,8 +152,23 @@ To accomplish this
 1. change `remote-git`'s READEME.md first line to `A + 2` and commit
 1. pull `hello-git` into `remote-git` to create the conflict
 
-Remember to create a conflict git needs to be unable to resolve the changesets.
-By editing the same line git is unable to figure out which one "should" be used.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 
@@ -146,6 +233,24 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 We are now officially conflicted!
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 #### What is in conflict?
 Often its not obvious what is in conflict just by the message (if there is a
 large set of changes).  So a simple way to see what is conflicted is by
@@ -167,10 +272,28 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 #### Note
 There are some things to take from this status message
-1. Unmerged path's contains READEM.md and it says `both modified`.  That is
+1. Unmerged path's contains README.md and it says `both modified`.  That is
    your key to what needs to be resolved
 
 1. You can abort the merge due to the conflict by executing `git merge --abort`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Resolving a Conflict
 When you cat out the file that is conflicted, `README.md`, you will see some
@@ -194,7 +317,7 @@ additional information in the file that was not there before
 
 So some important information is present.
 
-1.  Any >>>>, ======, <<<<< denote parts of the merge.
+1.  Any >>>>, ======, <<<<< denote parts of the conflict.
 
 ```bash
   1   <<<<<<< HEAD
@@ -209,11 +332,52 @@ You can verify this by noticing that the change in the `HEAD` section is `A +
 
 `=======` denotes the separation of the two merges
 
-
+The end of the merge conflict is denoted with >>>> and sha name
 ```bash
 >>>>>>> 9648be0ae764528ac63759d7e49fc623ae0af373
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+Validate that the sha, mine is 9648be0ae764528ac63759d7e49fc623ae0af373,
+belongs to `hello-git`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
 You can validate the bottom sha belonging to `hello-git` by using the following
 log
 
@@ -228,20 +392,59 @@ history.
 Notice that the hash provided in the conflict is `HEAD` in `hello-git` and it
 also matches the change of `A + 1`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 We are conflicted and we need to resolve this.  Use the `status` message to
-identify which file to edit and what to do after you edit the file.  The conflict
+identify which file to edit and what to do after you edit the file.  The
+conflict
 
 Lets choose a side to keep as part of the merge.  We _will_ choose my
 `remote-git` change.  To choose that commit, delete line `<<<<<<< HEAD` and
 delete from `=======` up to and including `>>>>>>>
 9648be0ae764528ac63759d7e49fc623ae0af373`
 
+In other words we are keeping the HEAD changes and dropping the `9648be0`
+changes
+
 (for the sake of the course you should choose the same side)
 
 After conflict has been resolved (by removing the conflict markers and the code
 from `hello-git`) commit the merge
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 The desired code state should be:
@@ -322,8 +525,44 @@ Merge branch 'trunk' of ../hello-git into trunk
 #
 ```
 
-### Problem
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Thought Exercise
 There was no status... why?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 We didn't accept the changes from `hello-git`.  We effectively _deleted_ all
@@ -349,9 +588,23 @@ cb75afe A
 Notice that we have a `merge` commit and we also have `A + 1` commit.  The
 history is not lost, but the changes are not present
 
-One nice property of having these merge commits is that if `hello-git` changes
-we will be able to merge in the new changes without the previous merge conflict
-happening again.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Two conflicts are better than one, right?  .... right?
@@ -363,6 +616,24 @@ Ok, i agree.  Lets not conflict again.  Instead
 ➜  hello-git git:(trunk) echo "no conflict" >> bar.md
 ```
 1. pull in change in remote
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 Make the change
@@ -405,13 +676,49 @@ contain your commits, so every merge will cause a merge commit.
 
 That means you could get a pretty hairy set of commits.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Conflicts, but with rebase
 
 ### Problem
 What is unique about `rebase` that would make conflicts harder?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Solution
-Recal that rebase will replay all your commits after moving forward the
+Recall that rebase will replay all your commits after moving forward the
 history, which means that if a conflict happens you will replay that conflict
 every time your rebase.
 
@@ -444,9 +751,46 @@ Now if we rebase again, we will play `E`, `F`, and `G`.
 
 Since we are computer scientists, aka masochists, Lets do this to ourselves!
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 To ensure everything continues on going smooth, lets update `trunk` in
 `hello-git` with `push` from `hello-git`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -506,12 +850,48 @@ To ../hello-git
    a9cb358..b51e34a  trunk -> trunk
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Lets create another conflict but resolve this via `rebase` instead of `merge`.
 
-1. create change in `hello-git` and `A + 2` -> `A + 3`
+1. create change in `hello-git` and `A + 2` -> `A + 3`.  Create another change in `bar.md`
 1. create change in `remote-git` and `A + 2` -> `A + 4`
 1. rebase `remote-git`'s `trunk` with `hello-git`'s and create the conflict
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 
@@ -602,6 +982,24 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 Could not apply a1cbe6c... A + 4
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 #### NOTICE
 If you read carefully you will see that bar was able to be `Auto-merged` where
 as README was not able to be merged
@@ -614,6 +1012,25 @@ We can `git rebase --abort` due to the conflict (much like the `git merge
 This is important.  Once you have resolved the conflict we need to `git rebase
 --continue` instead of `git commit`.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Checking out the conflict
 
 ```bash
 ➜  remote-git git:(958f33f) ✗ git status
@@ -641,6 +1058,24 @@ while `README.md` is unmerged.  Lets fix our conflict in README.md
 
 Opening up README.md shows us the following
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Thought Exercise
 Explain the conflict and why its different than merge
 
@@ -656,6 +1091,25 @@ remote-change
 downstream change
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Answer
 This was pretty tricky question. noticed that A + 3, from `hello-git` now takes
 the top spot and `A + 4` takes the bottom.
@@ -663,12 +1117,49 @@ the top spot and `A + 4` takes the bottom.
 Which means during a rebase `ours` code becomes `theirs` and `theirs` becomes
 `ours`.  We will cover this more indepth later
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Choose `our` conflict, `hello-git`'s change. (A + 3)
 
 #### Remember
 do not commit. We `git rebase --continue`.  This signals to the rebase command
 that we are ready for the next commit to be played on top.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -709,6 +1200,46 @@ A + 4
 Since there are no more commits that cause conflicts the rebase is complete.
 Lets take a quick look at our logs
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Exercise
+check out the history
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Result
 
 ```bash
 ➜  remote-git git:(trunk) git log --oneline -5
@@ -721,6 +1252,27 @@ d8a2f95 Merge branch 'trunk' of ../hello-git into trunk
 
 You will see our A + 4 and you will see origin's A + 3 "underneath" or previous
 in history.
+
+#### Note
+There is no merge commit.  People really seem to like this cleaner history.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## The Problem of Rebase
 Don't forget, rebase replays the commits on top of the history change.
@@ -743,10 +1295,49 @@ Changes to be committed:
 ### Thought Experiment
 Ask yourself, where is README.md?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Answer
 Well, since we accepted _theirs_ (marked as `ours` in the resolution) (we will
 talk about ours vs theirs later) changeset, we technically removed any change
 from `README.md`.  Therefore there was no change to rebase continue on.
+
+Remember, we have origin/trunk effectively checked out.  therefore there is no
+change to README.md when we accept _our_ changes during a rebase
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Lets try create the same issue except this time lets accept `ours` (`theirs` by
@@ -756,6 +1347,24 @@ position (bottom)) change.
 1. `A + 6` in `hello-git`
 1. `git pull origin trunk --rebase` in `remote-git` to cause the conflict
 1. accept `A + 6` change and `git rebase --continue`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 
@@ -864,12 +1473,50 @@ b51e34a Merge branch 'trunk' of ../hello-git into trunk
 
 #### This is where rebase can suck
 This is where things get complicated.  We have kept our change in the rebase.
+(our being remote-git's trunk)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Problem
 Create a change in `hello-git` and pull again.
 1. Add a `NewLine` below `A + 6` in `hello-git`
 1. rebase pull `hello-git` and cause the conflict
 1. DO NOT RESOLVE THE CONFLICT
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 
@@ -953,8 +1600,44 @@ downstream change
 
 Wait... didn't we already resolve this conflict?  Why are we resolving it again?
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Thought Exercise
 How does rebase fundamentally work?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Answer
 Rebase works by replaying the commits one at a time.  Therefore if we have our
@@ -964,18 +1647,132 @@ same change again and again.
 Does that mean rebase sucks?  Well no, it keeps your history very clean, but
 does that mean rebase can be annoying?  Yes.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Question
+would you use rebase?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Answer
+I would... and there is likely something you don't know about
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## RERERE
 rerere is just one of the strangest options in all of git.  There are some
 basic commands that can be ran.  Check out the man page, `man git-rerere` to go
 into details.   I have never needed them before.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 To enable `rerere`, set config option `rerer.enabled` to `true`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
 git config rerere.enabled true
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### What is rerere?
 rerere stands for REuse REcorded REsolution.  Or in other words, git will

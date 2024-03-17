@@ -413,6 +413,37 @@ git config --get --global init.defaultBranch
 master
 
 git config --global --set init.defaultBranch master
+```
+
+Ensure that rerere isn't true
+
+```bash
+git config --get rerere.enabled # should return nothing
+git config --global --set rerere.enabled false
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## How things will be structured
+Every section is going to come with a set of instructions and time for you to
+do this by yourself then i'll walk through doing it myself.  With git, the best
+way to learn is to do it yourself.
 
 <br>
 <br>
