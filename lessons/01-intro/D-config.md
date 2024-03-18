@@ -57,8 +57,8 @@ git config --add <section>.<keyname> <value>
 <br>
 
 ### Problem
-Create and add 3 values with the `section` `boot` but different keynames and we
-will use this for our platform for exploration.
+Create and add 3 values with the `section` `fem` (front end masters) but
+different keynames and we will use this for our platform for exploration.
 
 <br>
 <br>
@@ -80,9 +80,9 @@ will use this for our platform for exploration.
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --add boot.dev "is great"
-➜  my-first-git git:(master) git config --add boot.lane "is ok"
-➜  my-first-git git:(master) git config --add boot.git "would"
+➜  my-first-git git:(master) git config --add fem.dev "is great"
+➜  my-first-git git:(master) git config --add fem.lane "is ok"
+➜  my-first-git git:(master) git config --add fem.git "would"
 ```
 
 <br>
@@ -127,7 +127,7 @@ There are a couple ways you can list out config values.
 <br>
 
 ### Problem
-Can you list out all of `boot` value's with a single command?
+Can you list out all of `fem` value's with a single command?
 
 <br>
 <br>
@@ -149,10 +149,10 @@ Can you list out all of `boot` value's with a single command?
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --get-regexp boot
-boot.dev is great
-boot.lane is ok
-boot.git would
+➜  my-first-git git:(master) git config --get-regexp fem
+fem.dev is great
+fem.lane is ok
+fem.git would
 (END)
 ```
 
@@ -179,7 +179,7 @@ To tell you the truth, I personally end up using `git config --list | grep
 
 ### Problem
 Using what you know currently, can you change one of your values of your config
-that you have added.  Take `boot.dev` as an example.  Can you change that value
+that you have added.  Take `fem.dev` as an example.  Can you change that value
 to `is amazing!` instead?  Verify that you have changed the value with
 `--get-regexp`
 
@@ -206,17 +206,17 @@ We have only talked about `--add` and `--list`.  by using `--add` we would
 execute the following:
 
 ```bash
-➜  my-first-git git:(master) git config --add boot.dev "is amazing"
+➜  my-first-git git:(master) git config --add fem.dev "is amazing"
 ```
 
 But when we list out the values we see
 
 ```bash
-➜  my-first-git git:(master) git config --get-regexp boot
-boot.dev is great
-boot.lane is ok
-boot.git would
-boot.dev is amazing
+➜  my-first-git git:(master) git config --get-regexp fem
+fem.dev is great
+fem.lane is ok
+fem.git would
+fem.dev is amazing
 ```
 
 <br>
@@ -265,7 +265,7 @@ instead of using `--list` lets use `--get <key>` and see what comes out
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --get boot.dev
+➜  my-first-git git:(master) git config --get fem.dev
 is amazing
 ```
 
@@ -320,15 +320,15 @@ of to see what key was removed by git's `--unset`
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --unset boot.dev
-warning: boot.dev has multiple values
+➜  my-first-git git:(master) git config --unset fem.dev
+warning: fem.dev has multiple values
 ```
 
 Notice that we get a warning.  Does this mean we have removed one of the key
 value pairs?  Or all of them?  Well lets list out what we have
 
 ```bash
-➜  my-first-git git:(master) git config --get-all boot.dev
+➜  my-first-git git:(master) git config --get-all fem.dev
 is great
 is amazing
 (END)
@@ -378,8 +378,8 @@ Repeat above but use `--unset-all`
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --unset-all boot.dev
-➜  my-first-git git:(master) git config --get boot.dev
+➜  my-first-git git:(master) git config --unset-all fem.dev
+➜  my-first-git git:(master) git config --get fem.dev
 ```
 
 <br>
@@ -401,10 +401,10 @@ Repeat above but use `--unset-all`
 <br>
 
 ### Problem
-Yeah!  We were able to unset all of boot.dev's values!  We can unset all boot.*
+Yeah!  We were able to unset all of fem.dev's values!  We can unset all fem.*
 values by using `--remove-section`.  Remember a `key` is actually two parts.
 
-`<section>.<key>`.  So remove the entire `boot` namespace
+`<section>.<key>`.  So remove the entire `fem` namespace
 
 If you don't know how to use `--remove-section`, jump into the main page and
 use search to find the section
@@ -429,13 +429,13 @@ use search to find the section
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --remove-section boot
-➜  my-first-git git:(master) git config --get-regexp boot
+➜  my-first-git git:(master) git config --remove-section fem
+➜  my-first-git git:(master) git config --get-regexp fem
 
 (END)
 ```
 
-We have removed all the `boot` keys!  Lets go!
+We have removed all the `fem` keys!  Lets go!
 
 <br>
 <br>
@@ -464,7 +464,7 @@ The locations are:
 config via --file <filename>
 
 When we added our user.name and email, we did it for all of our projects
-through --global, whereas our `boot` additions were --local since we didn't
+through --global, whereas our `fem` additions were --local since we didn't
 specify where to add them to.
 
 You can use `--local` and `--global` when using `--get`, `--list`, `--add`, and `--unset`.
@@ -488,7 +488,7 @@ You can use `--local` and `--global` when using `--get`, `--list`, `--add`, and 
 <br>
 
 ### Problem
-Try adding the same key `boot.dev` to `--local` and `--global` locations (one
+Try adding the same key `fem.dev` to `--local` and `--global` locations (one
 at a time) and see what happens when you execute `--list` and `--get-regexp`
 
 add to `--global` first
@@ -513,11 +513,11 @@ add to `--global` first
 
 ### Solution
 ```bash
-➜  my-first-git git:(master) git config --global --add boot.dev "is amazing"
-➜  my-first-git git:(master) git config --local --add boot.dev "is amazing2"
-➜  my-first-git git:(master) git config --get-regexp boot
-boot.dev is amazing
-boot.dev is amazing2
+➜  my-first-git git:(master) git config --global --add fem.dev "is amazing"
+➜  my-first-git git:(master) git config --local --add fem.dev "is amazing2"
+➜  my-first-git git:(master) git config --get-regexp fem
+fem.dev is amazing
+fem.dev is amazing2
 (END)
 
 ➜  my-first-git git:(master) git config --list --local
@@ -525,7 +525,7 @@ core.repositoryformatversion=0
 core.filemode=true
 core.bare=false
 core.logallrefupdates=true
-boot.dev=is amazing2
+fem.dev=is amazing2
 (END)
 ```
 
@@ -576,7 +576,7 @@ retrieved via `--get`?
 ### Solution
 
 ```bash
-➜  my-first-git git:(master) git config --get boot.dev
+➜  my-first-git git:(master) git config --get fem.dev
 is amazing2
 ```
 
@@ -584,8 +584,8 @@ That grabs the local version, but I also added it second.  Lets add another
 Global property and see if we still grab local first
 
 ```bash
-➜  my-first-git git:(master) git config --global --add boot.dev "is amazing3"
-➜  my-first-git git:(master) git config --get boot.dev
+➜  my-first-git git:(master) git config --global --add fem.dev "is amazing3"
+➜  my-first-git git:(master) git config --get fem.dev
 is amazing2
 ```
 

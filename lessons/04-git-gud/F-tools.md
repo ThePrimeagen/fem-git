@@ -4,7 +4,7 @@ description: "Showing off the power of fugitive"
 ---
 
 ## Show a quick walkthrough of fugitive
--- purely a demo --
+* diff and diff view
 
 <br>
 <br>
