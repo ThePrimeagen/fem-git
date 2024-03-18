@@ -54,6 +54,9 @@ The goal of this course is to be a course for anyone with no knowledge or a
 decent amount.  We will step by step walk through quite a few operations and
 use `log` and `reflog` and other parts of git to understand it.
 
+<br>
+<br>
+
 Its designed to be a course for all levels of git knowledge
 
 <br>
@@ -91,8 +94,31 @@ If you don't know, man stands for manual.
 man man
 ```
 
+Or to see all the git commands
+
+```bash
+➜  fem-git git:(main) ✗ man git- # press tab for auto complete with zsh
+zsh: do you wish to see all 147 possibilities (49 lines)?
+```
+
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 There is a surprisingly long manual for how to read the friendly manual (RTFM),
 so to keep things short i'll give you some short cuts you need to know and that
@@ -128,23 +154,6 @@ is it.
 In man pages you see **bold** terms.  Search for the term bold and find out
 what it means.  Here is an example, from `man man`, of bolded terms
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ```bash
 SYNOPSIS
@@ -174,6 +183,36 @@ SYNOPSIS
 <br>
 <br>
 
+### Solution
+
+```
+       bold text          type exactly as shown.
+       italic text        replace with appropriate argument.
+       [-abc]             any or all arguments within [ ] are optional.
+       -a|-b              options delimited by | cannot be used together.
+       argument ...       argument is repeatable.
+       [expression] ...   entire expression within [ ] is repeatable.
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ## What is git?
 Git is a distributed version control system, VCS.  Instead of the traditional
 centralized control system where even checking out a file required admin
@@ -202,6 +241,8 @@ want.
 In Git, commands are divided into high level ("porcelain") commands and low
 level ("plumbing") commands.
 
+<br>
+<br>
 We will primarily use the high level commands, but will dip down into the low
 level commands to really understand how git works.
 
@@ -228,10 +269,13 @@ level commands to really understand how git works.
 <br>
 <br>
 
-* commit: A point in time representing the project in its entirety
+* commit: A point in time representing the project in its entirety.
+  - The sha that represents a commit, 40 a-Z0-9 characters, is calculated from
+    contents of change, author, time, and more
 
 <br>
 <br>
+
 * index: I will use this term or staging area interchangeably.  From the github
   blog
 
@@ -239,19 +283,22 @@ level commands to really understand how git works.
 
 <br>
 <br>
+
 * squash: to take several commits and turn it into one commit
   - technically a squash would be taking N commits and turning it into N - 1 to
   1 commit.  but typically its N commits to 1 commit
 
 <br>
 <br>
+
 * work tree, working tree, main working tree:  This is your git repo.  This is
 the set of files that represent your project.  Your working tree is setup by
 `git init` or `git clone`.
 
 <br>
 <br>
-* untracked, staged, and tracked:
+
+* untracked, staged, and tracked: (use excalidraw)
 1. untracked files.  this means files that are not staged for the first time
    (indexed) or already committed / tracked by the repo.  These files are the
    easiest to accidentally lose work on since git does not have any information
@@ -263,6 +310,7 @@ the set of files that represent your project.  Your working tree is setup by
    command.  see `man git-add` for more information
 <br>
 <br>
+
 2. tracked.  These are files that are already tracked by git.  Now a file could
    be tracked AND have staged changes (changes stored in the index) ready to be
    committed.
@@ -334,22 +382,29 @@ often, you can always change history to make it one commit (squashing)
 <br>
 
 ### A Warning
-A lot of you already have some level of git knowledge.  This is to be expected.
+A lot of peoples experience with git can be summed up in these four commands
 
 * `push`
 * `pull`
 * `add`
 * `commit`
 
-Everything else... yikes
+<br>
+<br>
+
+Everything else is ... mysterious and painful (if this is you, fantastic, this
+course is MOSTLY designed for you)
 
 <br>
 <br>
 
-This course is designed to take someone with zero knowledge and get them up to
-speed on git.  That means I will be interweaving simple items with complex
-items throughout this course.  If you try to skip a head you may miss out on a
-key conflict, or a way to use `git log` or `reflog`.
+This course can take someone with zero knowledge and get them up to speed on
+git.  That means I will be interweaving simple items with complex items
+throughout this course.  If you try to skip a head you may miss out on a key
+conflict, or a way to use `git log` or `reflog`.
+
+<br>
+<br>
 
 The reality is if you are comfortable with
 
@@ -362,29 +417,6 @@ The reality is if you are comfortable with
 * `reset`
 
 this course is _probably_ not for you.  You already know the 97% of git.
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-Git has 149 possible manuals for using git, spanning hundreds upon hundreds of
-pages.  This course is not mean to be exhaustive, but what will make you not
-only productive at your job, but able to fix 99% of the "oh shit" moments you
-have with git
 
 <br>
 <br>
@@ -418,9 +450,16 @@ git config --global --set init.defaultBranch master
 Ensure that rerere isn't true
 
 ```bash
-git config --get rerere.enabled # should return nothing
-git config --global --set rerere.enabled false
+git config --global rerere.enabled
+true
+git config --global --unset rerere.enabled
+git config --global rerere.enabled
 ```
+
+<br>
+<br>
+
+(you should do that now)
 
 <br>
 <br>
