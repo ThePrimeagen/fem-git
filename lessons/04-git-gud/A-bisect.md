@@ -257,7 +257,7 @@ Can you find the wrong commit using `--grep`?
 Shockingly, we have spotted our code.
 ```bash
 commit 3798398f377cd1722284ff30b211e3b66e218738
-Author: mpaulson <mpaulson@netflix.com>
+Author: ThePrimeagen <ThePrimeagen@netflix.com>
 Date:   Fri Feb 16 13:20:16 2024 -0700
 
     feat: altered foo to meet new specifications
@@ -806,7 +806,7 @@ Once you have successfully ran to the end, this is what you should see.
 ➜  git-bisect git:(3798398) git bisect bad
 3798398f377cd1722284ff30b211e3b66e218738 is the first bad commit
 commit 3798398f377cd1722284ff30b211e3b66e218738
-Author: mpaulson <mpaulson@netflix.com>
+Author: ThePrimeagen <ThePrimeagen@netflix.com>
 Date:   Fri Feb 16 13:20:16 2024 -0700
 
     feat: altered foo to meet new specifications
@@ -905,7 +905,7 @@ and find the same problem commit
 ➜  git-bisect git:(8bf2c77) git bisect run ./node_modules/.bin/vitest --run
 running  './node_modules/.bin/vitest' '--run'
 
- RUN  v1.2.1 /home/mpaulson/personal/git-bisect
+ RUN  v1.2.1 /home/ThePrimeagen/personal/git-bisect
 
  ❯ src/index.spec.js (1) 30107ms
    × foo 30106ms
@@ -940,7 +940,7 @@ Bisecting: 5 revisions left to test after this (roughly 3 steps)
 [0562cd710d40d23b5928747a45d71d2a76443752] F
 running  './node_modules/.bin/vitest' '--run'
 
- RUN  v1.2.1 /home/mpaulson/personal/git-bisect
+ RUN  v1.2.1 /home/ThePrimeagen/personal/git-bisect
 
  ✓ src/index.spec.js (1) 30101ms
    ✓ foo 30099ms
@@ -954,7 +954,7 @@ Bisecting: 2 revisions left to test after this (roughly 2 steps)
 [eb867402c2e4678887c8aa322c0da3ef54851f7c] I
 running  './node_modules/.bin/vitest' '--run'
 
- RUN  v1.2.1 /home/mpaulson/personal/git-bisect
+ RUN  v1.2.1 /home/ThePrimeagen/personal/git-bisect
 
  ✓ src/index.spec.js (1) 30070ms
    ✓ foo 30068ms
@@ -968,7 +968,7 @@ Bisecting: 0 revisions left to test after this (roughly 1 step)
 [972fa2ab45e5041a1fe8c95f31b520bc62d7af85] this commit is certainly not about foo
 running  './node_modules/.bin/vitest' '--run'
 
- RUN  v1.2.1 /home/mpaulson/personal/git-bisect
+ RUN  v1.2.1 /home/ThePrimeagen/personal/git-bisect
 
  ❯ src/index.spec.js (1) 30080ms
    × foo 30079ms
@@ -1003,7 +1003,7 @@ Bisecting: 0 revisions left to test after this (roughly 0 steps)
 [3798398f377cd1722284ff30b211e3b66e218738] feat: altered foo to meet new specifications
 running  './node_modules/.bin/vitest' '--run'
 
- RUN  v1.2.1 /home/mpaulson/personal/git-bisect
+ RUN  v1.2.1 /home/ThePrimeagen/personal/git-bisect
 
  ❯ src/index.spec.js (1) 30111ms
    × foo 30111ms
@@ -1036,7 +1036,7 @@ AssertionError: expected 140 to deeply equal 138
 
 3798398f377cd1722284ff30b211e3b66e218738 is the first bad commit
 commit 3798398f377cd1722284ff30b211e3b66e218738
-Author: mpaulson <mpaulson@netflix.com>
+Author: ThePrimeagen <ThePrimeagen@netflix.com>
 Date:   Fri Feb 16 13:20:16 2024 -0700
 
     feat: altered foo to meet new specifications

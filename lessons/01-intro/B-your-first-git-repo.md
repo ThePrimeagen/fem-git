@@ -37,6 +37,9 @@ commit comes with the author's name and email.  So to ensure you get proper
 credit and/or blame for all the wonderful code you add, we need to set our name
 and email!
 
+<br>
+<br>
+
 ### git config
 Git comes with a config that is global, for all projects, and local, project
 level.  There are other git config levels, but they are irrelevant for the
@@ -48,6 +51,9 @@ This would be akin to javascript's `Object.assign`
 ```javascript
 const config = Object.assign({}, globalConfig, localConfig);
 ```
+
+<br>
+<br>
 
 #### Key Facts
 * All git config keys are in the following shape: `<section>.<key>`.
@@ -161,6 +167,9 @@ Once inside the directory type `git init` and it will create a `.git` folder
 Create a new git repo at `/path/to/new/my-first-git-repo`.  Replace
 `/path/to/new` to your preferred project location.
 
+<br>
+<br>
+
 If you know what you are doing and have done this before i encourage you to
 follow along, we will be doing some exercises in this repo
 
@@ -213,7 +222,7 @@ hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint:   git branch -m <name>
-Initialized empty Git repository in /home/mpaulson/personal/my-first-git/.git/
+Initialized empty Git repository in /home/ThePrimeagen/personal/my-first-git/.git/
 ```
 
 We will address config more holistically later on.
@@ -312,8 +321,14 @@ directories in the git state directory.
 .git/hooks/pre-receive.sample
 ```
 
+<br>
+<br>
+
 You may not like this, but this is peak empty git repo with all the files and
 sample code needed to get your config up and running
+
+<br>
+<br>
 
 #### Note
 Git keeps its state by using a series of files and directories.  We will go
@@ -342,8 +357,11 @@ The next couple commands will be 80% of the commands you will execute when
 using git.  80% of git is exceptionally easy.  Its the 20% that can get you
 into trouble :7
 
+<br>
+<br>
+
 * `git add <path-to-file | pattern>` will add zero or more files to _the index_
-((staging area)staging area)
+(staging area)
 * `git commit -m '<message>'` will commit what changes are present in _the
 index_.
 * `git status` will describe the state of your git repo which will include
@@ -370,12 +388,18 @@ tracked, staged, and untracked changes.
 ### Problem
 We want to trace the steps of git from untracked to tracked.
 
+<br>
+<br>
+
 #### Command reminder
 ```
 git add <path-to-file | pattern>
 git commit -m '<message>'
 git status
 ```
+
+<br>
+<br>
 
 * create a file `first.md`
 * check the status of git to see that its untracked.
@@ -507,6 +531,9 @@ A common activity of the 20% is to see what the past changes are within a repo.
 We will dive deeper into this operation later, but for now, lets scratch the
 surface.
 
+<br>
+<br>
+
 `git log` has many options to make viewing of history a pleasant experience.
 
 <br>
@@ -575,18 +602,27 @@ Display the history of this repo with the `--graph` and `--decorate` option.
 git log --graph --decorate
 
 * commit 33d6d9645ac045c6d99eba9d6706d0d48421e582 (HEAD -> master)
-  Author: mpaulson <the.primeagen@gmail.com>
+  Author: ThePrimeagen <the.primeagen@gmail.com>
   Date:   Sun Jan 21 10:52:45 2024 -0700
 
       my first commit
 
 ```
 
+<br>
+<br>
+
 The decorate option, if you didn't understand from description, means that it
 puts branches / HEAD in the commit logs so you can see in a friendly way where
 your branches are pointed at.
 
+<br>
+<br>
+
 If you don't know what a branch is, that is ok, we will get there.
+
+<br>
+<br>
 
 Unfortunately we only have one commit, therefore our `--graph` option is less
 impressive.  Don't worry we will make extensive use.  What does show up is the

@@ -174,7 +174,7 @@ lets execute `git log` and write down our sha for this specific commit
 
 ```bash
 commit cb75afebfac407bfc860dd854b626322a6dc8345 (HEAD -> trunk, foo)
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 28 10:04:01 2024 -0700
 ```
 
@@ -325,19 +325,19 @@ Now lets execute `git log` and see if we can see a difference
 
 ```bash
 commit 16984cb1725b0bfeff43f60f92b3467ee6d525e3 (HEAD -> foo)
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 28 10:17:11 2024 -0700
 
     C
 
 commit 4ad6ccf530547ce89cfd90cd7a6e747f9531d917
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 28 10:15:38 2024 -0700
 
     B
 
 commit cb75afebfac407bfc860dd854b626322a6dc8345 (trunk)
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 28 10:04:01 2024 -0700
 
     A

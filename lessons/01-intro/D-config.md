@@ -686,7 +686,7 @@ Whatever name you have chosen should show up now as the default branch!
 
 ```bash
 ➜  hello-git git init
-Initialized empty Git repository in /home/mpaulson/personal/hello-git/.git/
+Initialized empty Git repository in /home/ThePrimeagen/personal/hello-git/.git/
 ➜  hello-git git:(trunk)
 ```
 

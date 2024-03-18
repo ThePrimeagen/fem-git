@@ -186,19 +186,19 @@ Checking out .git
 ```bash
 ➜  foo-bar git:(foo-bar) ls -la
 total 24
-drwxrwxr-x   2 mpaulson mpaulson 4096 Feb 29 19:00 .
-drwxrwxr-x 128 mpaulson mpaulson 4096 Feb 29 19:00 ..
--rw-rw-r--   1 mpaulson mpaulson   59 Feb 29 19:00 bar.md
--rw-rw-r--   1 mpaulson mpaulson   65 Feb 29 19:00 .git
--rw-rw-r--   1 mpaulson mpaulson   41 Feb 29 19:00 README.md
--rw-rw-r--   1 mpaulson mpaulson   24 Feb 29 19:00 upstream.md
+drwxrwxr-x   2 ThePrimeagen ThePrimeagen 4096 Feb 29 19:00 .
+drwxrwxr-x 128 ThePrimeagen ThePrimeagen 4096 Feb 29 19:00 ..
+-rw-rw-r--   1 ThePrimeagen ThePrimeagen   59 Feb 29 19:00 bar.md
+-rw-rw-r--   1 ThePrimeagen ThePrimeagen   65 Feb 29 19:00 .git
+-rw-rw-r--   1 ThePrimeagen ThePrimeagen   41 Feb 29 19:00 README.md
+-rw-rw-r--   1 ThePrimeagen ThePrimeagen   24 Feb 29 19:00 upstream.md
 ```
 
 .git is a file! what!
 
 ```bash
 ➜  foo-bar git:(foo-bar) cat .git
-gitdir: /home/mpaulson/personal/hello-git/.git/worktrees/foo-bar
+gitdir: /home/ThePrimeagen/personal/hello-git/.git/worktrees/foo-bar
 ```
 
 .git file shows that it is just a pointer to the main working tree.  That is
@@ -256,8 +256,8 @@ Go back to `hello-git` and list out the your linked working tree
 ### Solution
 ```bash
 ➜  foo-bar git:(foo-bar) git worktree list
-/home/mpaulson/personal/hello-git  7488b35 [trunk]
-/home/mpaulson/personal/foo-bar    7488b35 [foo-bar]
+/home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
+/home/ThePrimeagen/personal/foo-bar    7488b35 [foo-bar]
 ```
 
 <br>
@@ -306,8 +306,8 @@ Delete the working tree with `rm -rf` and see if you can discover through
 ```bash
 ➜  hello-git git:(trunk) rm -rf ../foo-bar
 ➜  hello-git git:(trunk) git worktree list
-/home/mpaulson/personal/hello-git  7488b35 [trunk]
-/home/mpaulson/personal/foo-bar    7488b35 [foo-bar] prunable
+/home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
+/home/ThePrimeagen/personal/foo-bar    7488b35 [foo-bar] prunable
 ```
 
 ```
@@ -321,7 +321,7 @@ That means to delete, just run prune
 ```bash
 ➜  hello-git git:(trunk) git worktree prune
 ➜  hello-git git:(trunk) git worktree list
-/home/mpaulson/personal/hello-git  7488b35 [trunk]
+/home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
 ```
 
 <br>
@@ -371,11 +371,11 @@ Recreate a worktree and delete it through .git this time.
 Preparing worktree (checking out 'foo-bar')
 HEAD is now at 7488b35 Revert "E"
 ➜  hello-git git:(trunk) git worktree list
-/home/mpaulson/personal/hello-git  7488b35 [trunk]
-/home/mpaulson/personal/foo-bar    7488b35 [foo-bar]
+/home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
+/home/ThePrimeagen/personal/foo-bar    7488b35 [foo-bar]
 ➜  hello-git git:(trunk) git worktree remove ../foo-bar
 ➜  hello-git git:(trunk) git worktree list
-/home/mpaulson/personal/hello-git  7488b35 [trunk]
+/home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
 ➜  hello-git git:(trunk) ls .. | grep foo-bar
 ➜  hello-git git:(trunk)
 ```

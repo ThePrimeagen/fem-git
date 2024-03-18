@@ -268,8 +268,8 @@ sha and the tree sha for the blob, file `baz.md`, contents
 ➜  hello-git git:(trunk) git cat-file -p f330d23
 tree d2d8e10a88b4e985003930d45c5c488abe712e6b # <-- the tree
 parent b23e6320e6fba64d93338543dcbcdcc9caadb71e
-author mpaulson <mpaulson@netflix.com> 1707069560 -0700
-committer mpaulson <mpaulson@netflix.com> 1707069560 -0700
+author ThePrimeagen <ThePrimeagen@netflix.com> 1707069560 -0700
+committer ThePrimeagen <ThePrimeagen@netflix.com> 1707069560 -0700
 
 Baz
 

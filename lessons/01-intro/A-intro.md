@@ -270,7 +270,7 @@ level commands to really understand how git works.
 <br>
 
 * commit: A point in time representing the project in its entirety.
-  - The sha that represents a commit, 40 a-Z0-9 characters, is calculated from
+  - The sha that represents a commit, 40 a-f 0-9 characters, is calculated from
     contents of change, author, time, and more
 
 <br>
@@ -442,9 +442,10 @@ We will be doing some changes to the default settings throughout this course.
 ```bash
 git config --get --global init.defaultBranch
 
-master
+master # or any name to show up here
 
-git config --global --set init.defaultBranch master
+## PLEASE DO THIS
+git config --global --unset init.defaultBranch
 ```
 
 Ensure that rerere isn't true

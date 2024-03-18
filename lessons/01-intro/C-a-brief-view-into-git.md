@@ -6,11 +6,20 @@ description: "time to get the hands dirty"
 ## Git internal representations
 To understand git you must go past the porceline and check out the plumbing
 
+<br>
+<br>
+
 ### SHAs
 git commits come with a sha (a hash with 0-9a-f characters).
 
+<br>
+<br>
+
 You can specify the first 7 characters of a sha for git to identify what you
 are referring to.
+
+<br>
+<br>
 
 To get the sha of a commit, we can use the `log` command and copy the long hex string
 
@@ -33,7 +42,7 @@ To get the sha of a commit, we can use the `log` command and copy the long hex s
 <br>
 
 ### Problem
-Find the commit sha of your first commit
+Find the commit sha of your first commit (copy it to your system clipboard)
 
 <br>
 <br>
@@ -61,7 +70,7 @@ git log
 You should see something like this
 ```bash
 commit 5ba786fcc93e8092831c01e71444b9baa2228a4f (HEAD -> master)
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 21 19:40:56 2024 -0700
 
     batman
@@ -150,19 +159,19 @@ Upon initial look via ls, you will see a nothing that looks familiar.
 ```bash
 ➜  my-first-git git:(master) ls -la .git
 total 52
-drwxrwxr-x  8 mpaulson mpaulson 4096 Jan 21 12:10 .
-drwxrwxr-x  3 mpaulson mpaulson 4096 Jan 21 12:10 ..
-drwxrwxr-x  2 mpaulson mpaulson 4096 Jan 21 10:29 branches
--rw-rw-r--  1 mpaulson mpaulson    7 Jan 21 12:10 COMMIT_EDITMSG
--rw-rw-r--  1 mpaulson mpaulson   92 Jan 21 10:29 config
--rw-rw-r--  1 mpaulson mpaulson   73 Jan 21 10:29 description
--rw-rw-r--  1 mpaulson mpaulson   23 Jan 21 10:29 HEAD
-drwxrwxr-x  2 mpaulson mpaulson 4096 Jan 21 10:29 hooks
--rw-rw-r--  1 mpaulson mpaulson  209 Jan 21 12:10 index
-drwxrwxr-x  2 mpaulson mpaulson 4096 Jan 21 10:29 info
-drwxrwxr-x  3 mpaulson mpaulson 4096 Jan 21 10:52 logs
-drwxrwxr-x 10 mpaulson mpaulson 4096 Jan 21 12:10 objects
-drwxrwxr-x  4 mpaulson mpaulson 4096 Jan 21 10:29 refs
+drwxrwxr-x  8 ThePrimeagen ThePrimeagen 4096 Jan 21 12:10 .
+drwxrwxr-x  3 ThePrimeagen ThePrimeagen 4096 Jan 21 12:10 ..
+drwxrwxr-x  2 ThePrimeagen ThePrimeagen 4096 Jan 21 10:29 branches
+-rw-rw-r--  1 ThePrimeagen ThePrimeagen    7 Jan 21 12:10 COMMIT_EDITMSG
+-rw-rw-r--  1 ThePrimeagen ThePrimeagen   92 Jan 21 10:29 config
+-rw-rw-r--  1 ThePrimeagen ThePrimeagen   73 Jan 21 10:29 description
+-rw-rw-r--  1 ThePrimeagen ThePrimeagen   23 Jan 21 10:29 HEAD
+drwxrwxr-x  2 ThePrimeagen ThePrimeagen 4096 Jan 21 10:29 hooks
+-rw-rw-r--  1 ThePrimeagen ThePrimeagen  209 Jan 21 12:10 index
+drwxrwxr-x  2 ThePrimeagen ThePrimeagen 4096 Jan 21 10:29 info
+drwxrwxr-x  3 ThePrimeagen ThePrimeagen 4096 Jan 21 10:52 logs
+drwxrwxr-x 10 ThePrimeagen ThePrimeagen 4096 Jan 21 12:10 objects
+drwxrwxr-x  4 ThePrimeagen ThePrimeagen 4096 Jan 21 10:29 refs
 ```
 
 But within the `objects` directory you should see at least one interesting entry
@@ -170,13 +179,13 @@ But within the `objects` directory you should see at least one interesting entry
 ```bash
 ➜  my-first-git git:(master) ls -la .git/objects
 total 28
-drwxrwxr-x 7 mpaulson mpaulson 4096 Jan 21 19:40 .
-drwxrwxr-x 8 mpaulson mpaulson 4096 Jan 21 19:40 ..
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 4e
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 5b
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 9a
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 info
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 pack
+drwxrwxr-x 7 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 .
+drwxrwxr-x 8 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 ..
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 4e
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 5b
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 9a
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 info
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 pack
 ```
 
 Do you see anything that is familiar in here?
@@ -187,9 +196,9 @@ and so does a directory here.  Lets ls that directory
 ```bash
 ➜  my-first-git git:(master) ls -la .git/objects/5b
 total 12
-drwxrwxr-x 2 mpaulson mpaulson 4096 Jan 21 19:40 .
-drwxrwxr-x 7 mpaulson mpaulson 4096 Jan 21 19:40 ..
--r--r--r-- 1 mpaulson mpaulson  125 Jan 21 19:40 a786fcc93e8092831c01e71444b9baa2228a4f
+drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 .
+drwxrwxr-x 7 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 ..
+-r--r--r-- 1 ThePrimeagen ThePrimeagen  125 Jan 21 19:40 a786fcc93e8092831c01e71444b9baa2228a4f
 ```
 
 You may now notice again that `a786...` is the remaining part of my commit sha,
@@ -284,8 +293,8 @@ similar.
 ➜  git cat-file -p 5ba786fcc93e8092831c01e71444b9baa2228a4f
 
 tree 4e507fdc6d9044ccd8a4a3061324c9f711c4667d
-author mpaulson <the.primeagen@gmail.com> 1705891256 -0700
-committer mpaulson <the.primeagen@gmail.com> 1705891256 -0700
+author ThePrimeagen <the.primeagen@gmail.com> 1705891256 -0700
+committer ThePrimeagen <the.primeagen@gmail.com> 1705891256 -0700
 
 batman
 ```
@@ -442,8 +451,8 @@ Now lets list out the contents of that commit
 ➜  my-first-git git:(master) git cat-file -p 48d06ff
 tree 6282551fedc655bc5ee9180ad67021c22245fdae
 parent 5ba786fcc93e8092831c01e71444b9baa2228a4f
-author mpaulson <the.primeagen@gmail.com> 1706387467 -0700
-committer mpaulson <the.primeagen@gmail.com> 1706387467 -0700
+author ThePrimeagen <the.primeagen@gmail.com> 1706387467 -0700
+committer ThePrimeagen <the.primeagen@gmail.com> 1706387467 -0700
 
 second
 ```

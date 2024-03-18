@@ -108,7 +108,7 @@ Using log -p to look at the contents of E using `--grep` and `-p`
 ```bash
 ➜  hello-git git:(trunk) git log -p --grep E
 commit a665b08996994c2e6620a6367b0ab524be221cb2
-Author: mpaulson <the.primeagen@gmail.com>
+Author: ThePrimeagen <the.primeagen@gmail.com>
 Date:   Sun Jan 28 10:56:37 2024 -0700
 
     E
@@ -286,7 +286,7 @@ shows the contents of the change too
 
 ```bash
 commit 7488b357e64cf426eaa3390a6c406e2d10f63f40 (HEAD -> trunk)
-Author: mpaulson <mpaulson@netflix.com>
+Author: ThePrimeagen <ThePrimeagen@netflix.com>
 Date:   Sun Feb 25 20:35:16 2024 -0700
 
     Revert "E"
