@@ -7,6 +7,24 @@ description: "An aggressive approach to becoming clean"
 This has such a wide range of responsibilites from get rid of what is in the
 worktree or the index to walking back a commit
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Soft
 Git reset soft can be very useful if you need to make a commit that is
 partially finished and you want to edit that commit and change the contents
@@ -32,15 +50,56 @@ Now lets say we need to continue to edit our previous commit.  We have two optio
 1. we could use `git reset --soft HEAD~1` to move `trunk` back one commit and
    alter the index and worktree to match the contents of the commit.
 
+#### Note
+`git commit --amend` will take your current staged changes and apply them to
+the current commit, changing the hash (since contents have been changed).
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Use `git reset --soft HEAD~1` to move `trunk` back one commit.  This should
 make the working state of your branch contain the changes of the revert instead
 of the revert commit.
 
-Use git log to check out the state of `trunk` after `git reset` to see that you
-are no longer on the reverted commit
+inspect state of your git branch via `git log` and `git status`
 
 `git commit` back the reverted change with a new message
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -99,23 +158,72 @@ ce41293 (HEAD -> trunk) its not just a revert anymore
 d53a122 A + 10
 ```
 
-#### NOTE
-Obviously this is dangerous as we have just altered history of a branch!  If
-someone else was working on this branch you could cause serious conflicts by
-creating new histories.  This can be a nice way to go about editing your own
-branch that at some point you will merge, but i personally prefer to commit new
-changes to new commits and at the end do an interactive rebase to squash my
-commits.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### NOTE
+Obviously this is dangerous as we have just altered history of a branch
 
 The basics of soft is to reset the history to the point you want (HEAD~1) and
 the index and worktree will contain the changes whence you came (Our revert in
 this example).  We could of used soft reset and went back several commits and
 we would have all their changes.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Hard
 Hard will do the same thing as soft except it will drop changes to the `index`
 and worktree.  That means any work that is being tracked by git will be
 destroyed
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Before we try walking back a commit, lets first create a local change and see
@@ -124,6 +232,24 @@ what happens when we execute `git reset --hard`
 Add a small change to `README.md` and create a new file, `foo.md`, with any
 change you see fit, then execute `git reset --hard` which will destroy index
 and worktree changes
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -165,8 +291,44 @@ README.md `git add`d it would still have been reseted back to the HEAD state.
 
 foo.md did not get destroyed because git is not tracking the file in any way.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Destroy foo by using `git add` and `git reset --hard`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -188,11 +350,65 @@ CAUTION WITH RESET HARD
 It can destroy your work and it can be virtually impossible to get back that
 work.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Git reset --hard with HEAD~1
 We can walk back our tree just like soft, except we discard the changes
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Try it now.  Try walking back our commit with `git reset --hard HEAD~1`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -205,8 +421,44 @@ nothing to commit, working tree clean
 
 Not only did we reset trunk one step back, we also discarded all changes.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Challenge Question!
 Can you restore `hello-git` to the position it was BEFORE we started this section?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -248,7 +500,44 @@ Switched to a new branch 'trunk'
 Look at that.  We have checked out that point in time, deleted our current
 version of `trunk`, and then checked out a new version of trunk.
 
-#### Note
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Note
 There are more things you can do with `git reset` but i find i use restore and
 git reset --hard only.  Git reset --hard to restore me back to HEAD cleanly and
 restore to remove a staged file.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+

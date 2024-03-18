@@ -10,6 +10,24 @@ Stashing.
 But wait... did we not just learn stashing?  Yes.  So is it bad?  No.  ... I am
 confused
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Worktree
 You are working on feature branch `foo_bar`.  You are making great progress and
 you are in flow state.
@@ -25,6 +43,24 @@ Just then, slack pings, lo and behold an emergency investigation is needed on
 Worktrees are not pure upsides though.  There is a bit of work you need to be
 prepared for.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### What is a worktree?
 Generally when we say `worktree` we mean a `linked working tree`
 
@@ -32,6 +68,25 @@ When you `git init` a repo it creats the `main working tree`.  This is why
 other trees representing a commit but without all the git information are called
 `linked working trees` because they are a state of the repo at a commit + a
 pointer to the main tree (with the git information)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Worktree Operations
 #### Add
@@ -65,12 +120,50 @@ a new linked working tree!
 if each branch has a high setup cost.  like if your npm install takes 100
 minutes due to everything-js dependency, worktrees can be more of a pain.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 create a worktree of `hello-git` with the path name ending in `foo-bar`.
 Suggestion, `../foo-bar`
 
 when completed check out `.git` found in the linked working tree. What's
 different about this .git vs a main working tree .git?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 
@@ -119,8 +212,46 @@ This means you _NEVER_ have to stash again, if you don't want to.
 
 You can also check out an existing branch with `git worktree add <path> <branch_name>`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Go back to `hello-git` and list out the your linked working tree
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -129,9 +260,47 @@ Go back to `hello-git` and list out the your linked working tree
 /home/mpaulson/personal/foo-bar    7488b35 [foo-bar]
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Delete the working tree with `rm -rf` and see if you can discover through
 `.git` that your worktree no longer is active.  Then delete the worktree
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -155,8 +324,46 @@ That means to delete, just run prune
 /home/mpaulson/personal/hello-git  7488b35 [trunk]
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 Recreate a worktree and delete it through .git this time.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Solution
 ```bash
@@ -173,6 +380,25 @@ HEAD is now at 7488b35 Revert "E"
 ➜  hello-git git:(trunk)
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### I love worktrees
 I think they are one of the best ways to use git as they allow you to keep
 state based on each branch rather than on directory.  This allows for partial
@@ -181,6 +407,25 @@ rebase squash dance.
 
 I would highly recommend getting use to working with them.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Other Downsides
 Its not all upside when it comes to git worktrees.
 
@@ -188,3 +433,23 @@ Its not all upside when it comes to git worktrees.
 * npm installing on each branch can take a minute
 * go is great
 * .env files can be a bit of a pain
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
