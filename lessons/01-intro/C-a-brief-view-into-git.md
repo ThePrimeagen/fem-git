@@ -81,11 +81,51 @@ commit 5ba786fcc93e8092831c01e71444b9baa2228a4f
 ---------^ this is the sha
 ```
 
-#### NOTE
-You will have a different sha1 result because the hash is calculated from
-time, author, commit message, and some other details
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+
+### Question
+Why is your sha different than mine?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Answer
 sha: SHA stands for Secure Hashing Algorithm. SHA is a modified version of MD5
+
+Second, your sha, if you remember me saying, is the combination of changes you
+have made, author, time, etc etc
 
 <br>
 <br>
@@ -108,8 +148,14 @@ sha: SHA stands for Secure Hashing Algorithm. SHA is a modified version of MD5
 ### Problem
 This next part will be a bit hard, but its doable.
 
+<br>
+<br>
+
 Can you find your commit's file(s) of data within `.git` folder.  See if you
 can `cat` out any data
+
+<br>
+<br>
 
 **hint**:
 Your commit's sha is a key piece of information
@@ -190,6 +236,9 @@ drwxrwxr-x 2 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 pack
 
 Do you see anything that is familiar in here?
 
+<br>
+<br>
+
 I do.  My commit, `5ba786fcc93e8092831c01e71444b9baa2228a4f` starts with `5b`
 and so does a directory here.  Lets ls that directory
 
@@ -203,6 +252,9 @@ drwxrwxr-x 7 ThePrimeagen ThePrimeagen 4096 Jan 21 19:40 ..
 
 You may now notice again that `a786...` is the remaining part of my commit sha,
 and yours exists in the same format!
+
+<br>
+<br>
 
 #### Observation
 Commits exist in the `.git/objects` directory with the first 2 letters as a
@@ -342,8 +394,14 @@ point of our first commit.
 * tree: tree is analagous to directory
 * blob: blob is analagous to file
 
+<br>
+<br>
+
 You probably noticed that the tree (directory), when cat'd, contains a single
 entry, a blob, which was named first.md.
+
+<br>
+<br>
 
 ### BIG TAKEAWAY
 Git does not store diffs, git stores complete version of the entire source at
@@ -479,14 +537,62 @@ Now compare the original tree from our first commit
 100644 blob 9a71f81a4b4754b686fd37cbb3c72d0250d344aa    first.md
 ```
 
+<br>
+<br>
+
 Notice that our commit, `48d06ff`, has the _same_ `first.md` file, but with a
 newly added `second.md`! So to manually reconstruct the entire file tree thus
 far, we just need to cat-file both first.md and second.md from the current
 commhut!
 
+<br>
+<br>
+
 That also means that git stores _pointers_ to the ENTIRE worktree, not the
 entire worktree itself which means its significantly more efficient space wise.
+
+<br>
+<br>
 
 hopefully this makes git feel less magical.  Just remember at some point every
 program is just a bunch of if statements, for loops, and variables.  This is
 true even about git
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### For Them
+Create an inner directory and do it again and show them the inner trees!
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
