@@ -3,11 +3,17 @@ title: "Rebasing is Complicated"
 description: "Lets change some history like its 1984"
 ---
 
-## Rebasing
+## MOAR Rebasing
 We have briefly talked about rebasing as being able to realign where the branch
 point exists for one branch onto another.
 
+<br>
+<br>
+
 In other words, you make history linear.  Here is a simple visual example
+
+<br>
+<br>
 
 ```bash
       E - F - G    topic
@@ -15,11 +21,20 @@ In other words, you make history linear.  Here is a simple visual example
 A - B - C - D      master
 ```
 
+<br>
+<br>
+
 ```bash
 ➜  some-git git:(topic) git rebase master # we are on branch topic
 ```
 
+<br>
+<br>
+
 Assuming everything went off without a hitch, you will have the following state
+
+<br>
+<br>
 
 ```bash
               E - F - G    topic
@@ -49,13 +64,22 @@ A - B - C - D              master
 You may find yourself on a team that asks you to "squash" your commits.  What
 is meant by this is interactive rebase squash.
 
+<br>
+<br>
+
 In other words: the aforementioned diagram we can transform from
+
+<br>
+<br>
 
 ```bash
               E - F - G    topic
              /
 A - B - C - D              master
 ```
+
+<br>
+<br>
 
 To
 ```bash
@@ -65,11 +89,19 @@ To
 A - B - C - D              master
 ```
 
-Along with squashing, interactive rebasing allows you to edit messages or
-remove commits.
+<br>
+<br>
+
+Along with squashing, interactive rebasing allows you to edit messages and more
+
+<br>
+<br>
 
 Lets create a situation where we can interactively squash our commits and
 provide some proper messaging!
+
+<br>
+<br>
 
 But to get there we need to cover a LOT of ground
 
@@ -91,10 +123,35 @@ But to get there we need to cover a LOT of ground
 <br>
 <br>
 
+### For us to cover this...
+we have to talk about the most dreaded topic in git
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ## Conflicts
-I hate them
-You hate them
-but its good to know how to resolve them.
+I hate them <br>
+You hate them <br>
+but its good to know how to resolve them. <br>
+
+<br>
+<br>
 
 #### PLEASE
 A note for all who have a nice git plugin to make this process easier.  Please
@@ -146,10 +203,13 @@ Create a conflict with `remote-git` and `hello-git`.  To do this, please create
 a commit in both `hello-git` and `remote-git` editing the same location within
 a file.
 
+<br>
+<br>
+
 To accomplish this
 1. Use `trunk` in both repos
-1. change `hello-git`'s READEME.md first line to `A + 1` and commit
-1. change `remote-git`'s READEME.md first line to `A + 2` and commit
+1. change `hello-git`'s README.md first line to `A + 1` and commit
+1. change `remote-git`'s README.md first line to `A + 2` and commit
 1. pull `hello-git` into `remote-git` to create the conflict
 
 <br>
@@ -173,6 +233,7 @@ To accomplish this
 ### Solution
 
 1. Changed `hello-git` `trunk`'s README.md's first line
+
 ```bash
 cd path/to/hello-git
 ➜  hello-git git:(trunk) vim README.md
@@ -184,7 +245,13 @@ remote-change
 
 ```
 
+<br>
+<br>
+
 Commit the change
+
+<br>
+<br>
 
 ```bash
 ➜  hello-git git:(trunk) git add .
@@ -193,7 +260,14 @@ Commit the change
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
+<br>
+<br>
+
 2. Changed `remote-git` `trunk`'s README.md's first line
+
+<br>
+<br>
+
 ```bash
 cd path/to/remote-git
 ➜  remote-git git:(trunk) vim README.md
@@ -205,7 +279,13 @@ remote-change
 
 ```
 
+<br>
+<br>
+
 Commit the change
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) git add .
@@ -214,7 +294,13 @@ Commit the change
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
+<br>
+<br>
+
 Time to pull down change from remote
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) git pull origin trunk
@@ -230,6 +316,9 @@ Auto-merging README.md
 CONFLICT (content): Merge conflict in README.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
+
+<br>
+<br>
 
 We are now officially conflicted!
 
@@ -251,10 +340,13 @@ We are now officially conflicted!
 <br>
 <br>
 
-#### What is in conflict?
+### What is in conflict?
 Often its not obvious what is in conflict just by the message (if there is a
 large set of changes).  So a simple way to see what is conflicted is by
 checking out the status
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) ✗ git status
@@ -270,12 +362,20 @@ Unmerged paths:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
+<br>
+<br>
+
 #### Note
 There are some things to take from this status message
+
+<br>
+
 1. Unmerged path's contains README.md and it says `both modified`.  That is
    your key to what needs to be resolved
 
-1. You can abort the merge due to the conflict by executing `git merge --abort`
+<br>
+
+2. You can abort the merge due to the conflict by executing `git merge --abort`
 
 <br>
 <br>
@@ -299,6 +399,9 @@ There are some things to take from this status message
 When you cat out the file that is conflicted, `README.md`, you will see some
 additional information in the file that was not there before
 
+<br>
+<br>
+
 ```bash
 ➜  remote-git git:(trunk) ✗ vim README.md
 
@@ -315,7 +418,13 @@ additional information in the file that was not there before
 
 ```
 
+<br>
+<br>
+
 So some important information is present.
+
+<br>
+<br>
 
 1.  Any >>>>, ======, <<<<< denote parts of the conflict.
 
@@ -323,16 +432,30 @@ So some important information is present.
   1   <<<<<<< HEAD
 ```
 
+<br>
+<br>
+
 This stats that `HEAD`s conflicted change starts here and continues until the
-`=======` line
+`=======` line.  You can confirm this with `git log -p -1`
+
+<br>
+<br>
 
 You can verify this by noticing that the change in the `HEAD` section is `A +
 2` which is the change that is in the `remote-git` `trunk` branch and is the
 `HEAD` location of `remote-git`
 
+<br>
+<br>
+
 `=======` denotes the separation of the two merges
 
-The end of the merge conflict is denoted with >>>> and sha name
+<br>
+<br>
+
+The end of the merge conflict is denoted with >>>> and sha of the incoming
+conflicted change
+
 ```bash
 >>>>>>> 9648be0ae764528ac63759d7e49fc623ae0af373
 ```
@@ -381,13 +504,22 @@ belongs to `hello-git`
 You can validate the bottom sha belonging to `hello-git` by using the following
 log
 
+<br>
+<br>
+
 ```bash
 ➜  hello-git git:(trunk) git log --oneline -1
 9648be0 (HEAD -> trunk) A + 1
 ```
 
+<br>
+<br>
+
 `-1` with `git log` says only show `1` commit.  `-3` would show `3` commits of
 history.
+
+<br>
+<br>
 
 Notice that the hash provided in the conflict is `HEAD` in `hello-git` and it
 also matches the change of `A + 1`
@@ -412,21 +544,37 @@ also matches the change of `A + 1`
 
 ### Problem
 We are conflicted and we need to resolve this.  Use the `status` message to
-identify which file to edit and what to do after you edit the file.  The
-conflict
+identify which file to edit and what to do after you edit the file.
+
+<br>
+<br>
 
 Lets choose a side to keep as part of the merge.  We _will_ choose my
 `remote-git` change.  To choose that commit, delete line `<<<<<<< HEAD` and
 delete from `=======` up to and including `>>>>>>>
 9648be0ae764528ac63759d7e49fc623ae0af373`
 
+<br>
+<br>
+
 In other words we are keeping the HEAD changes and dropping the `9648be0`
 changes
 
+<br>
+<br>
+
 (for the sake of the course you should choose the same side)
 
+<br>
+<br>
+
 After conflict has been resolved (by removing the conflict markers and the code
-from `hello-git`) commit the merge
+from `hello-git`) commit the merge.
+
+<br>
+<br>
+
+**Before you commit the merge check the status**
 
 <br>
 <br>
@@ -448,6 +596,10 @@ from `hello-git`) commit the merge
 
 ### Solution
 The desired code state should be:
+
+<br>
+<br>
+
 ```bash
 A + 2
 D
@@ -456,12 +608,21 @@ remote-change
 downstream change
 ```
 
+<br>
+<br>
+
 We removed all the `<`, `=`, and `>` lines (conflict markers) and `A + 1`
 (change from `hello-git`)
+
+<br>
+<br>
 
 #### Side Note
 Now there is technically nothing preventing you from choosing both sides, and if you did
 that your code would look like
+
+<br>
+<br>
 
 ```bash
 A + 1
@@ -472,7 +633,13 @@ remote-change
 downstream change
 ```
 
+<br>
+<br>
+
 `git status` tells us the next step
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) ✗ git status
@@ -488,7 +655,13 @@ Unmerged paths:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
+<br>
+<br>
+
 We need to run `git commit`
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) ✗ git add .
@@ -497,6 +670,9 @@ On branch trunk
 All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
 ```
+
+<br>
+<br>
 
 ```bash
 
@@ -569,7 +745,13 @@ We didn't accept the changes from `hello-git`.  We effectively _deleted_ all
 the changes from remote so the change was empty.  There is still a merge commit
 that is needed.
 
+<br>
+<br>
+
 You can validate the merge commit by a quick look at the logs
+
+<br>
+<br>
 
 ```bash
 d8a2f95 (HEAD -> trunk) Merge branch 'trunk' of ../hello-git into trunk
@@ -585,8 +767,16 @@ a665b08 E
 cb75afe A
 ```
 
+<br>
+<br>
+
 Notice that we have a `merge` commit and we also have `A + 1` commit.  The
 history is not lost, but the changes are not present
+
+<br>
+<br>
+
+**Try looking at the log with --graph**
 
 <br>
 <br>
@@ -609,13 +799,27 @@ history is not lost, but the changes are not present
 ### Problem
 Two conflicts are better than one, right?  .... right?
 
+<br>
+<br>
+
 Ok, i agree.  Lets not conflict again.  Instead
 
+<br>
+<br>
+
 1. create a change in `bar.md` in `hello-git`
+
+<br>
+<br>
+
 ```bash
 ➜  hello-git git:(trunk) echo "no conflict" >> bar.md
 ```
-1. pull in change in remote
+
+<br>
+<br>
+
+2. pull in change in remote
 
 <br>
 <br>
@@ -638,6 +842,9 @@ Ok, i agree.  Lets not conflict again.  Instead
 ### Solution
 Make the change
 
+<br>
+<br>
+
 ```bash
 ➜  hello-git git:(trunk) echo "no conflict" >> bar.md
 ➜  hello-git git:(trunk) ✗ git add .
@@ -646,7 +853,13 @@ Make the change
  1 file changed, 1 insertion(+)
 ```
 
+<br>
+<br>
+
 Pull in the change to `remote-git`
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) git pull origin trunk
@@ -670,11 +883,44 @@ Merge made by the 'ort' strategy.
     5 # the commit.
 ```
 
+<br>
+<br>
+
 #### Observation
 Notice you do have to have another merge commit because the origin does not
 contain your commits, so every merge will cause a merge commit.
 
+<br>
+<br>
+
 That means you could get a pretty hairy set of commits.
+
+<br>
+<br>
+
+**Check out the graph again with log --graph**
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Takeaway?
+* once you resolve a conflict and you don't take upstream's you will get merge
+commits until you sync your changes back to the remote
 
 <br>
 <br>
@@ -695,6 +941,26 @@ That means you could get a pretty hairy set of commits.
 <br>
 
 ## Conflicts, but with rebase
+aren't you excited for more conflicts?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Problem
 What is unique about `rebase` that would make conflicts harder?
@@ -719,18 +985,30 @@ What is unique about `rebase` that would make conflicts harder?
 
 ### Solution
 Recall that rebase will replay all your commits after moving forward the
-history, which means that if a conflict happens you will replay that conflict
-every time your rebase.
+history, which means what if a conflict happened in the past?
+
+<br>
+<br>
 
 Lets say you have the following setup:
+
+<br>
+<br>
+
 ```bash
       E - F - G    topic
     /
 A - B - C - D      master
 ```
 
+<br>
+<br>
+
 And lets pretend that `C` contains a change that creates a conflict with `G`.
 We rebase and we resolve the conflict and now our graph looks like the following:
+
+<br>
+<br>
 
 ```bash
               E - F - G    topic
@@ -738,7 +1016,13 @@ We rebase and we resolve the conflict and now our graph looks like the following
 A - B - C - D              master
 ```
 
+<br>
+<br>
+
 Then master gets another commit, `Y`
+
+<br>
+<br>
 
 ```bash
               E - F - G    topic
@@ -746,8 +1030,13 @@ Then master gets another commit, `Y`
 A - B - C - D - Y          master
 ```
 
+<br>
+<br>
+
 Now if we rebase again, we will play `E`, `F`, and `G`.
 
+<br>
+<br>
 
 Since we are computer scientists, aka masochists, Lets do this to ourselves!
 
