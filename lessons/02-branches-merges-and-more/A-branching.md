@@ -8,6 +8,9 @@ You don't always want to be developing on the main branch.  Sometimes you need
 a feature that is developed off the main line, such that you can return to the
 main line, update the code, branch off, and perform some immediate needed fix.
 
+<br>
+<br>
+
 This is where git branches come in.  They are _cheap_, virtually free, to
 create.  With our of understanding git internals this will become much more
 clear throughout this section
@@ -34,6 +37,9 @@ clear throughout this section
 Since we are in a new git repo, lets create our initial commit.  We will be
 using the `hello-git` you just created previously to test the `trunk` default
 branch setting
+
+<br>
+<br>
 
 I would like a `README.md` with one line, `A`, and a commit message of `A`
 
@@ -94,6 +100,24 @@ git branch foo
 
 Will create a new branch named `foo`
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Try it out, create a branch named `foo`
 
@@ -122,10 +146,46 @@ Try it out, create a branch named `foo`
 ➜  hello-git git:(trunk)
 ```
 
-Well... what happened?
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-* A branch was created pointing to the commit as `trunk`
+### Well... what happened?
+
+* A branch was created pointing to the same commit as `trunk`
 * We remain on `trunk`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### List out branches
 We can observe this by executing `git branch`.  `git branch` will display all
@@ -135,6 +195,25 @@ of our local branches
 git branch
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ### Problem
 List out your branches.  How do you know what branch you are on?  Use `git log`
 with `--decorate` to see where the branches point at and prove that `foo`
@@ -142,6 +221,21 @@ points to the same commit as `trunk`
 
 <br>
 <br>
+
+**Side Note**
+If you use `git log` and you see the same output as when you use `--decorate`
+this happens.  There are some internal settings that automagically make this
+happen
+
+```
+git log > out
+cat out
+```
+
+you may notice that you lose the branching information that you had.
+
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -158,10 +252,11 @@ points to the same commit as `trunk`
 <br>
 <br>
 
-
-I see when executing this the following: (its its own screen)
+### Solution
 
 ```bash
+git branch
+
   foo
 * trunk
 (END)
@@ -198,6 +293,56 @@ this commit.  A branch _POINTS_ to a commit, it is not a set of changes.
 <br>
 <br>
 <br>
+
+### A Touch of Git Foo
+Can you find your branch details in `.git`?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Ahh yes... its right there...
+
+```bash
+➜  hello-git git:(trunk) ✗ cat .git/refs/heads/foo
+cb75afebfac407bfc860dd854b626322a6dc8345
+➜  hello-git git:(trunk) ✗ cat .git/refs/heads/trunk
+cb75afebfac407bfc860dd854b626322a6dc8345
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 ### Switching branches
 You can switch branches easily in two ways
@@ -277,10 +422,26 @@ Switched to branch 'foo'
 Now that you are `foo` lets create another commit with message `B` and a new
 line added to `README.md` of "B"
 
+<br>
+<br>
+
 Then do it again, except replace `B` with `C`
+
+<br>
+<br>
 
 When finished use `git log` with what options you want, to see if you can see
 some differences now!
+
+<br>
+<br>
+
+This should be the setup you should have at the end of this
+```
+    B - C foo
+   /
+  A       trunk
+```
 
 <br>
 <br>

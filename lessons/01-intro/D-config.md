@@ -62,6 +62,18 @@ different keynames and we will use this for our platform for exploration.
 
 <br>
 <br>
+
+I'll use:
+
+```
+fem.dev is great
+fem.marc is ok
+fem.git would
+```
+
+
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -81,7 +93,7 @@ different keynames and we will use this for our platform for exploration.
 ### Solution
 ```bash
 ➜  my-first-git git:(master) git config --add fem.dev "is great"
-➜  my-first-git git:(master) git config --add fem.lane "is ok"
+➜  my-first-git git:(master) git config --add fem.marc "is ok"
 ➜  my-first-git git:(master) git config --add fem.git "would"
 ```
 
@@ -106,7 +118,7 @@ different keynames and we will use this for our platform for exploration.
 ### Listing out values
 There are a couple ways you can list out config values.
 * `--list`: where it will list out the entirety of the config.
-* `--git-regexp <regex>`: this takes a pattern and looks for all names matching
+* `--get-regexp <regex>`: this takes a pattern and looks for all names matching
 
 <br>
 <br>
@@ -151,7 +163,7 @@ Can you list out all of `fem` value's with a single command?
 ```bash
 ➜  my-first-git git:(master) git config --get-regexp fem
 fem.dev is great
-fem.lane is ok
+fem.marc is ok
 fem.git would
 (END)
 ```
@@ -214,7 +226,7 @@ But when we list out the values we see
 ```bash
 ➜  my-first-git git:(master) git config --get-regexp fem
 fem.dev is great
-fem.lane is ok
+fem.marc is ok
 fem.git would
 fem.dev is amazing
 ```
@@ -315,8 +327,26 @@ You can "unset" a value and you can remove an entire section.  Lets do both.
 <br>
 
 ### Problem
-Use `--unset` and remove a duplicate key.  Then use any command you can think
-of to see what key was removed by git's `--unset`
+try to remove our duplicate key with `--unset`.  If you don't know how to do
+this, check out the man page, `man git-config` and search for `unset`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Solution
 ```bash
@@ -400,11 +430,95 @@ Repeat above but use `--unset-all`
 <br>
 <br>
 
+### Fun fact
+configuration is just a file.  that means your local configurations are
+probably in the `.git` folder
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Problem
+find the git config in the `.git` folder and cat it out
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Solution
+
+```toml
+➜  my-first-git-repo git:(master) cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[fem]
+        marc = is ok
+        git = would
+```
+
+Sometimes when the magic is gone its almost disappointing...
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Yeah!  We were able to unset all of fem.dev's values!  We can unset all fem.*
 values by using `--remove-section`.  Remember a `key` is actually two parts.
+Use `--get-regexp` to validate you have removed everything
+
+<br>
+<br>
 
 `<section>.<key>`.  So remove the entire `fem` namespace
+
+<br>
+<br>
 
 If you don't know how to use `--remove-section`, jump into the main page and
 use search to find the section
@@ -529,9 +643,6 @@ fem.dev=is amazing2
 (END)
 ```
 
-Notice that using `--local` with `--list` allows us to see just the local
-values, but there is nothing preventing a global and a local value showing up.
-
 <br>
 <br>
 <br>
@@ -585,6 +696,28 @@ Global property and see if we still grab local first
 
 ```bash
 ➜  my-first-git git:(master) git config --global --add fem.dev "is amazing3"
+```
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+```bash
 ➜  my-first-git git:(master) git config --get fem.dev
 is amazing2
 ```
@@ -592,6 +725,30 @@ is amazing2
 So that means the following:
 1. grabs from more specific to less specific
 1. gets the latest value from the most specific category
+
+<br>
+<br>
+
+### To prove #2
+try executing `git config --get --global fem.dev`.  We should get `is greatest`
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Like all of programming
 Git config probably at one point seemed a bit weird and you executed one
@@ -623,9 +780,14 @@ learn it.  As always I encourage you to review the git manual
 
 
 ### Problem
-Lets rename our `master` branch to `trunk`.  Now we want to do this globally
-and not just for our specific project so we need to make sure we set correct
-flags:  set the key `init.defaultBranch` to the value of `trunk`, globally.
+Lets make our default branch from `master` to `trunk`.  The config setting is
+`init.defaultBranch`
+
+<br>
+<br>
+
+### Question
+should this be a local or global change?
 
 <br>
 <br>
@@ -651,7 +813,7 @@ git config --global init.defaultBranch trunk
 ```
 This will change the default setting for all projects going forward.  This does
 not mean that our current git projects have changed.  Current projects will
-have to rename and push to their remotes.
+have to be rename.
 
 <br>
 <br>
