@@ -3,7 +3,7 @@ title: "Remote"
 description: "Sometimes my problems are just one pull away"
 ---
 
-## Git pull
+## Remote Git
 Often we need code changes that have been created by our fellow frienemies.
 But how do we get their changes into our repo?  Or how do we push our changes
 to someone else repo?
@@ -30,7 +30,13 @@ to someone else repo?
 Often we think of remote repos as github or gitlab, but it doesn't have to be
 that way.
 
+<br>
+<br>
+
 If you have never used git, maybe remote is an odd term.
+
+<br>
+<br>
 
 A remote is simply a copy of the repo _somewhere else_.
 
@@ -53,7 +59,7 @@ A remote is simply a copy of the repo _somewhere else_.
 <br>
 
 ### Problem
-Create a new repo, `remote-repo`.  Lets initialize it as an empty git repo using
+Create a new repo, `remote-git`.  Lets initialize it as an empty git repo using
 `git init`
 
 <br>
@@ -156,10 +162,20 @@ Add `hello-git` as a remote.  You should name it `origin`
 
 ```bash
 ➜  remote-git git:(trunk) git remote add origin ../hello-git
+```
+
+To check you can execute `git remote -v` to list out your remotes and their
+locations
+
+<br>
+<br>
+
+```bash
 ➜  remote-git git:(trunk) git remote -v
 origin  ../hello-git (fetch)
 origin  ../hello-git (push)
 ```
+
 
 <br>
 <br>
@@ -182,11 +198,17 @@ origin  ../hello-git (push)
 ## Gitism
 There are two naming conventions i have seen:
 
+<br>
+<br>
+
 ### Remote is project repo
 typically when you have a remote git repo its called `origin`.  This is the
 _source of truth_ repo.
 
-### Remote is your fork of repo
+<br>
+<br>
+
+### Remote is your fork of some other repo
 sometimes you have _your_ remote repo (fork), which you will name `origin` and
 you have the project repo which is typically named `upstream`.
 
@@ -364,6 +386,12 @@ Notice the branch names pointing to commit `b23e632` are `origin/trunk` and
 
 <br>
 <br>
+
+### Note
+IMPORTANT: Branch names can contain the remote they come from.
+
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -383,16 +411,25 @@ Notice the branch names pointing to commit `b23e632` are `origin/trunk` and
 ### NOTICE
 if we wish to see what `branch`es came down with `git fetch` we can execute
 `git branch -a` (git branch all) to see all branches that currently exist.
+
 <br>
 <br>
 
 Anytime you see a branch that is `<remote>/<name>` it means that it is the last
 known state of the `<remote>` repo's `<name>` (branch).  Practically what this
 means is that at any moment you are likely out of sync with your remote.  That
-is ok.  That is the wonders of git.  You don't have to update, you can use
-yours until you are ready to fetch in changes.  Now convenience is a real
-thing.  I try to update regularly.  The large the out of sync is, the
-likelihood of conflict goes north
+is ok.  That is the wonders of git.
+
+<br>
+<br>
+
+You don't have to update, you can use yours until you are ready to fetch in changes.
+
+<br>
+<br>
+
+Now convenience is a real thing.  I try to update regularly.  The large the out
+of sync is, the likelihood of conflict goes north
 
 <br>
 <br>
@@ -475,8 +512,14 @@ You will now see that our local `trunk` matches our `origin/trunk`
 Fetching is always a good idea.  It keeps your local repo's remotes up to date,
 but it doesn't alter your state.
 
+<br>
+<br>
+
 The thing is that a lot of the time you just want the changes merged for you
 into your branch.  This can be done with one convenient command, `git pull`
+
+<br>
+<br>
 
 ```bash
 git pull <remote> <branch>
@@ -535,8 +578,14 @@ git pull <remote> <branch>
  1 file changed, 1 insertion(+)
 ```
 
+<br>
+<br>
+
 Now lets swap back to `remote-git` and pull in the changes instead of `fetch` /
 `merge`
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) git pull
@@ -558,12 +607,18 @@ If you wish to set tracking information for this branch you can do so with:
     git branch --set-upstream-to=origin/<branch> trunk
 ```
 
+<br>
+<br>
+
 You will notice we failed.  Why?  The reason is that we did not setup our
 `trunk` branch to track the `origin/trunk` branch.  Git will not automatically
 track state in a "remote" because that may not be what you want to do.
 Therefore if you `git pull` it wont know where to pull from since nothing has
 been specified.  This becomes even more obvious once you have more than one
 remote.
+
+<br>
+<br>
 
 Its often convenient to setup tracking because we can use `push` and `pull`
 without specifying the target branch.  Git assumes that just because two
@@ -590,8 +645,8 @@ tell git to track branches manually _on preexisting branches_.
 
 ### Problem
 Read the error again and figure out how to "track" the remote branch.  Once you
-execute the command then `git push` to the origin.  Use the tracking command
-that does not involve `git push`
+execute the command then `git pull` to the origin.  Use the tracking command
+that does not involve `git pull`
 
 <br>
 <br>
@@ -626,6 +681,9 @@ Fast-forward
 
 Since the changes were `fetch`ed with our previous `pull` we didn't have to
 re-fetch, but instead we simply merged with a "fast forward" merge strategy.
+
+<br>
+<br>
 
 Remember all of our merge and rebase talk?  Well now it really applies here.
 We were able to fast forward merge because we made no changes to trunk.
@@ -675,6 +733,9 @@ to
 Typically whenever I pull in changes from the remote authority repo I will
 `rebase` the changes.  I do not like adding in a bunch of merge commits.  This
 is a personal preference, but I think its a superiour one :)
+
+<br>
+<br>
 
 - A long lived branch with a bunch of merge commits is much more difficult to revert.
 - If every change is a single commit, then the ability to revert is very trivial.
@@ -730,25 +791,58 @@ like the idea of rebasing from authority
 <br>
 <br>
 
-## Git push
+## Git !pull
 The opposite of pull?
 
-Yes
+<br>
+<br>
+
+Yes, `git push`
+
+<br>
+<br>
 
 If you wish take your changes and move the remote repo, you can do this by
 using `git push`.  Much like pull, if you are not "tracking" then you cannot
 simply `git push` but instead you will have to specify the remote and branch
 name.
 
+<br>
+<br>
+
 Lets make some changes to `bar` and push them to `hello-git`
+
+<br>
+<br>
 
 #### Fun Facts
 * `git push <remote> <local_name>:<remote_name>` allows you to push and have it received with a different name
 * `git push <remote> :<remote_name>` will delete a branch on the remote
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Problem
 Create a single commit, "CHANGE FROM REMOTE", as a one line change to the end
 of README.md to branch `bar`.  Then push the changes back to `hello-git`
+
+<br>
+<br>
 
 validate the change made it to `hello-git`'s `bar` branch
 
@@ -789,7 +883,13 @@ _create_ the branch.  This is because locally we do not have a `bar` branch,
 but `origin` does.  Also `origin` is our _ONLY_ remote. Therefore it makes
 sense to create a local branch and track the remote it came from.
 
+<br>
+<br>
+
 Now lets push our change
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(bar) git push
@@ -803,7 +903,13 @@ To ../hello-git
    b23e632..aab17e0  bar -> bar
 ```
 
+<br>
+<br>
+
 And lets see if we see this on `hello-git`
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(bar) cd ../hello-git
@@ -816,7 +922,16 @@ a665b08 E
 cb75afe A
 ```
 
+<br>
+<br>
+
 Well look at that!  We are sharing changes now!
+
+<br>
+<br>
+
+The astute observer will notice that `bar`'s branch on hello-git was moved
+forward... why?
 
 <br>
 <br>
