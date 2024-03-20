@@ -25,11 +25,11 @@ This json file allows you to configure the details of the site. Update the info 
 - _title_ – The title of your course
 - _subtitle_ – The subtitle of your course. Optional.
 - _frontendMastersLink_ – A link to the published video on FrontendMasters.com. Optional.
-- _social.linkedin_ - Your LinkedIn public user name, just the name, not the full link. Optional
+- _social.linkedin_ - Your LinkedIn public user name, just the name, not the full link. Optional.
 - _social.twitter_ – Your Twitter user name. Optional.
 - _social.github_ – Your GitHub user name. Optional.
 - _description_ – The description you want to show up in search engine results.
-- _keywords_ – The SEO keywords for this course. An array of strings
+- _keywords_ – The SEO keywords for this course. An array of strings.
 - _productionBaseUrl_ – Typically useful for GitHub Pages. This adds a base path to your project. For GitHub Pages, this will be the name of your repo. For example, this site's base URL is `/next-course-starter` because the production URL for this site is `btholt.github.io/next-course-starer`. Do note this will also make your dev server's base URL this as well so you can catch problems before they go to production.
 
 ### styles/variables.css
@@ -48,11 +48,11 @@ Your image. If you call it this, you won't have to change any code. If you need 
 
 ### public/images/social-share-cover.jpg
 
-The image that will be used if someone shares your website to Twitter/Facebook/etc. If you call it this, you won't have to change any code. If you do need to change it, it's in `pages/index.js`
+The image that will be used if someone shares your website to Twitter/Facebook/etc. If you call it this, you won't have to change any code. If you do need to change it, it's in `pages/index.js`.
 
 ### public/images/course-icon.png
 
-The image at the top of the course. If you call it this, you won't have to change any code. If you do need to change it, it's in `pages/index.js`
+The image at the top of the course. If you call it this, you won't have to change any code. If you do need to change it, it's in `pages/index.js`.
 
 ## Lessons
 
@@ -66,7 +66,7 @@ The titles of your lessons and sections are generated from the folder and lesson
 
 The folder and lesson names are also used for the slugs. `02-section-two/C-lesson-three.md` becomes `yoursite.com/lessons/section-two/lesson-three`.
 
-Each of these lessons can have a [frontmatter](https://github.com/jonschlinkert/gray-matter#readme) for the following properties
+Each of these lessons can have a [frontmatter](https://github.com/jonschlinkert/gray-matter#readme) for the following properties:
 
 - _title_ – If you want the title to be different from the file name, you can specify here what that title should be. Frequently this useful for things where the capitalization would be off e.g. TailwindCSS instead of Tailwindcss. Optional.
 - _description_ – If you want to give individual lessons descriptions for SEO and for Frontend Masters, you can write a brief description here.
