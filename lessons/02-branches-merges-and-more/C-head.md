@@ -46,7 +46,7 @@ Switched to branch 'trunk'
 ➜  hello-git git:(trunk) git log --oneline --decorate --graph
 
 * b23e632 (HEAD -> trunk, bar) Y
-...         ^--- we currently have trunk checkedout
+...         ^--- we currently have trunk checked out
 ```
 
 <br>
@@ -63,7 +63,7 @@ Switched to branch 'foo'
 ➜  hello-git git:(trunk) git log --oneline --decorate --graph
 
 * 16984cb (HEAD -> foo) C
-...         ^--- we currently have foo checkedout
+...         ^--- we currently have foo checked out
 ```
 
 <br>

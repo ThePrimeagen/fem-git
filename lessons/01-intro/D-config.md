@@ -57,7 +57,7 @@ git config --add <section>.<keyname> <value>
 <br>
 
 ### Problem
-Create and add 3 values with the `section` `fem` (front end masters) but
+Create and add 3 values with the `section` `fem` (frontend masters) but
 different keynames and we will use this for our platform for exploration.
 
 <br>

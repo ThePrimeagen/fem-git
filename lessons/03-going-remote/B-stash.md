@@ -515,7 +515,7 @@ Fast-forward
 ### Problem
 Now we need to get back our original changes.  Please pop the changes of our
 _first_ stash.  Remember the stash is a stack like data structure.  Therefore
-your first change isn't the first item in the stash
+your first change isn't the first item in the stash.
 
 <br>
 <br>

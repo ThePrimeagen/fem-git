@@ -1369,11 +1369,7 @@ Opening up README.md shows us the following
 Explain the conflict and why its different than merge
 
 ```bash
-<<<<<<< HEAD
 A + 3
-=======
-A + 4
->>>>>>> c041abf (A + 4)
 D
 E
 remote-change
@@ -1875,12 +1871,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Ok, only README.md is conflicted.
 
 ```bash
-<<<<<<< HEAD
 A + 6
 NewLine
-=======
-A + 5
->>>>>>> 52bfa5a (A + 5)
 D
 E
 remote-change

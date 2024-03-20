@@ -45,7 +45,7 @@ export default function Lessons({ sections }) {
           </div>
           <div className="courseIcon">
             <img
-              src={`${process.env.BASE_URL}/images/course-icon.png`}
+              src={`${process.env.BASE_URL}/images/course-icon.webp`}
               alt="course icon"
             />
           </div>
