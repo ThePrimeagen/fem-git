@@ -1724,10 +1724,11 @@ change to README.md when we accept _our_ changes during a rebase
 Lets try create the same issue except this time lets accept `ours` (`theirs` by
 position (bottom)) change.
 
-1. `A + 5` in `remote-git`
-1. `A + 6` in `hello-git`
+1. `A + 5` in `hello-git`
+1. `A + 6` in `remote-git`
 1. `git pull origin trunk --rebase` in `remote-git` to cause the conflict
 1. accept `A + 6` change and `git rebase --continue`
+1. check out history to see `A + 6` commit
 
 <br>
 <br>
@@ -1996,7 +1997,7 @@ Wait... didn't we already resolve this conflict?  Why are we resolving it again?
 <br>
 
 ### Thought Exercise
-How does rebase fundamentally work?
+Does this now make sense with how rebase works?
 
 <br>
 <br>
@@ -2043,7 +2044,12 @@ does that mean rebase can be annoying?  Yes.
 <br>
 
 ### Question
-would you use rebase?
+(i know there is an active conflict right now due to rebase)
+
+<br>
+<br>
+
+Given what you know now, would you use rebase or merge?
 
 <br>
 <br>
@@ -2087,7 +2093,12 @@ I would... and there is likely something you don't know about
 ## RERERE
 rerere is just one of the strangest options in all of git.  There are some
 basic commands that can be ran.  Check out the man page, `man git-rerere` to go
-into details.   I have never needed them before.
+into details.   I have never needed them before, i just use the config and live
+my best life
+
+From the [The Git Docs](https://git-scm.com/book/en/v2/Git-Tools-Rerere)
+
+> The git rerere functionality is a bit of a hidden feature. The name stands for “reuse recorded resolution” and, as the name implies, it allows you to ask Git to remember how you’ve resolved a hunk conflict so that the next time it sees the same conflict, Git can resolve it for you automatically.
 
 <br>
 <br>
@@ -2108,7 +2119,8 @@ into details.   I have never needed them before.
 <br>
 
 ### Problem
-To enable `rerere`, set config option `rerer.enabled` to `true`
+Enable rerere just for this project.  You can enable it globally if you like
+it. Make the config option `rerer.enabled` to `true`
 
 <br>
 <br>
@@ -2131,6 +2143,20 @@ To enable `rerere`, set config option `rerer.enabled` to `true`
 ### Solution
 ```bash
 git config rerere.enabled true
+```
+
+<br>
+<br>
+
+and to validate
+
+<br>
+<br>
+
+```bash
+git config --list --local
+... a few options ...
+rerere.enabled=true
 ```
 
 <br>
@@ -2178,7 +2204,7 @@ delete rerere's in case you incorrectly resolved a conflict
 <br>
 
 ### Problem
-Resolve the conflict and accept _our_ change, `A + 5`
+Resolve the conflict and accept _our_ change, `A + 6`
 
 <br>
 <br>
@@ -2349,9 +2375,30 @@ task, but it can as easily be done from the command line.
 <br>
 <br>
 
+## Ours and Theirs
+"Its just the worst with git" - Some Coding Guy
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### Ours Vs Theirs
-Ours represents the current branches change and theirs represents the change
-the incoming branch has.
+* Ours is the change of the current branch
+* Theirs is the change of the incomming branch
 
 To select theirs or ours use the following checkout command
 ```bash
@@ -2379,8 +2426,8 @@ git checkout --theirs README.md #use "theirs" change
 
 ### Problem / Setup
 Lets create a conflict again, in README.md
-1. `remote-git` make it `A + 7`
-1. `hello-git` make it `A + 8`
+1. `hello-git` make it `A + 7`
+1. `remote-git` make it `A + 8`
 1. merge from upstream and resolved the conflict with "ours"
 1. validate you have merged the changes via git log
 
@@ -2572,8 +2619,8 @@ To ../hello-git
 ### Problem
 Perform the same task as before except with rebase
 
-1. `remote-git` make it `A + 9`
-1. `hello-git` make it `A + 10`
+1. `hello-git` make it `A + 9`
+1. `remote-git` make it `A + 10`
 1. rebase from upstream and resolved the conflict with "ours."
 1. do not `git rebase --continue`
 
