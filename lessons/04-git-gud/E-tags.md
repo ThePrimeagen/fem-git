@@ -81,7 +81,9 @@ git checkout <tagname> # to checkout a tag
 
 ### Problem
 Create a tag
+<br>
 List out your tags
+<br>
 Do tags show up in `log`?
 
 <br>
