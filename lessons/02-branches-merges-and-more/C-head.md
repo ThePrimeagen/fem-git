@@ -339,8 +339,8 @@ Switched to branch 'trunk'
 ➜  hello-git git:(trunk) git checkout -b baz
 Switched to a new branch 'baz'
 ➜  hello-git git:(baz) echo "baz" > baz.md
-➜  hello-git git:(baz) ✗ git add baz.md
-➜  hello-git git:(baz) ✗ git commit -m 'Baz'
+➜  hello-git git:(baz) git add baz.md
+➜  hello-git git:(baz) git commit -m 'Baz'
 [baz f330d23] Baz
  1 file changed, 1 insertion(+)
  create mode 100644 baz.md

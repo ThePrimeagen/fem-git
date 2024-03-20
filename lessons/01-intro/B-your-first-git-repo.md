@@ -447,7 +447,7 @@ You should see something similar to the following.  Noticed that we only have
 `untracked` files.  Meaning our git repo has no information on `first.md`
 
 ```bash
-➜  my-first-git git:(master) ✗ git status
+➜  my-first-git git:(master) git status
 On branch master
 
 No commits yet
@@ -479,7 +479,7 @@ committing.
 #### 4. validate the file is now staged
 
 ```bash
-➜  my-first-git git:(master) ✗ git status
+➜  my-first-git git:(master) git status
 On branch master
 
 No commits yet

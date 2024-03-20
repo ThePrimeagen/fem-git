@@ -180,7 +180,7 @@ this revert.  Resloving them are a lot like rebase.  figure out the code you
 want to keep and `git revert --continue`
 
 ```bash
-➜  hello-git git:(trunk) ✗ git status
+➜  hello-git git:(trunk) git status
 On branch trunk
 You are currently reverting commit a665b08.
   (fix conflicts and run "git revert --continue")
@@ -290,8 +290,8 @@ downstream change
 Now, just like rebase, we have to `git revert --continue`
 
 ```bash
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git revert --continue
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git revert --continue
 
 Revert "E"
 

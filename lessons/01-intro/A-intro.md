@@ -97,7 +97,7 @@ man man
 Or to see all the git commands
 
 ```bash
-➜  fem-git git:(main) ✗ man git- # press tab for auto complete with zsh
+➜  fem-git git:(main) man git- # press tab for auto complete with zsh
 zsh: do you wish to see all 147 possibilities (49 lines)?
 ```
 
@@ -382,12 +382,13 @@ often, you can always change history to make it one commit (squashing)
 <br>
 
 ### A Warning
-A lot of peoples experience with git can be summed up in these four commands
+A lot of peoples experience with git can be summed up in these five commands
 
 * `push`
 * `pull`
 * `add`
 * `commit`
+* `status`
 
 <br>
 <br>

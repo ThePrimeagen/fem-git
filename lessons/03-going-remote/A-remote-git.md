@@ -572,8 +572,8 @@ git pull <remote> <branch>
 ```bash
 ➜  remote-git git:(trunk) cd ../hello-git
 ➜  hello-git git:(trunk) echo "remote-change" >> README.md
-➜  hello-git git:(trunk) ✗ git add README.md
-➜  hello-git git:(trunk) ✗ git commit -m "A remote change"
+➜  hello-git git:(trunk) git add README.md
+➜  hello-git git:(trunk) git commit -m "A remote change"
 [trunk 42afc8d] A remote change
  1 file changed, 1 insertion(+)
 ```
@@ -879,8 +879,8 @@ validate the change made it to `hello-git`'s `bar` branch
 Branch 'bar' set up to track remote branch 'bar' from 'origin'.
 Switched to a new branch 'bar'
 ➜  remote-git git:(bar) echo "Change from remote" >> README.md
-➜  remote-git git:(bar) ✗ git add README.md
-➜  remote-git git:(bar) ✗ git commit -m 'CHANGE FROM REMOTE'
+➜  remote-git git:(bar) git add README.md
+➜  remote-git git:(bar) git commit -m 'CHANGE FROM REMOTE'
 [bar aab17e0] CHANGE FROM REMOTE
  1 file changed, 1 insertion(+)
 ```

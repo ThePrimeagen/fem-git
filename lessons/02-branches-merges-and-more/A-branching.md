@@ -318,9 +318,9 @@ Can you find your branch details in `.git`?
 ### Ahh yes... its right there...
 
 ```bash
-➜  hello-git git:(trunk) ✗ cat .git/refs/heads/foo
+➜  hello-git git:(trunk) cat .git/refs/heads/foo
 cb75afebfac407bfc860dd854b626322a6dc8345
-➜  hello-git git:(trunk) ✗ cat .git/refs/heads/trunk
+➜  hello-git git:(trunk) cat .git/refs/heads/trunk
 cb75afebfac407bfc860dd854b626322a6dc8345
 ```
 

@@ -349,7 +349,7 @@ checking out the status
 <br>
 
 ```bash
-➜  remote-git git:(trunk) ✗ git status
+➜  remote-git git:(trunk) git status
 On branch trunk
 You have unmerged paths.
   (fix conflicts and run "git commit")
@@ -403,7 +403,7 @@ additional information in the file that was not there before
 <br>
 
 ```bash
-➜  remote-git git:(trunk) ✗ vim README.md
+➜  remote-git git:(trunk) vim README.md
 
 ## This is the look of vim
   1   <<<<<<< HEAD
@@ -642,7 +642,7 @@ downstream change
 <br>
 
 ```bash
-➜  remote-git git:(trunk) ✗ git status
+➜  remote-git git:(trunk) git status
 On branch trunk
 You have unmerged paths.
   (fix conflicts and run "git commit")
@@ -664,7 +664,7 @@ We need to run `git commit`
 <br>
 
 ```bash
-➜  remote-git git:(trunk) ✗ git add .
+➜  remote-git git:(trunk) git add .
 ➜  remote-git git:(trunk) git status
 On branch trunk
 All conflicts fixed but you are still merging.
@@ -847,8 +847,8 @@ Make the change
 
 ```bash
 ➜  hello-git git:(trunk) echo "no conflict" >> bar.md
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'no conflict'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'no conflict'
 [trunk a9cb358] no conflict
  1 file changed, 1 insertion(+)
 ```
@@ -1258,8 +1258,8 @@ Lets create another conflict but resolve this via `rebase` instead of `merge`.
 ➜  hello-git git:(bar) git checkout trunk
 Switched to branch 'trunk'
 ➜  hello-git git:(trunk) vim README.md
-➜  hello-git git:(trunk) ✗ vim bar.md
-➜  hello-git git:(trunk) ✗ git diff
+➜  hello-git git:(trunk) vim bar.md
+➜  hello-git git:(trunk) git diff
 diff --git a/README.md b/README.md
 index e42f7f7..43b4231 100644
 --- a/README.md
@@ -1279,8 +1279,8 @@ index 04fca9f..894d904 100644
  Y
  no conflict
 +adding a line to the end
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 3'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'A + 3'
 [trunk 958f33f] A + 3
  2 files changed, 2 insertions(+), 1 deletion(-)
 ```
@@ -1289,8 +1289,8 @@ index 04fca9f..894d904 100644
 
 ```bash
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ vim bar.md
-➜  remote-git git:(trunk) ✗ git diff
+➜  remote-git git:(trunk) vim bar.md
+➜  remote-git git:(trunk) git diff
 diff --git a/README.md b/README.md
 index e42f7f7..76c0a5e 100644
 --- a/README.md
@@ -1310,8 +1310,8 @@ index 04fca9f..3dc9259 100644
  X
  Y
  no conflict
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 4'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'A + 4'
 [trunk a1cbe6c] A + 4
  2 files changed, 2 insertions(+), 1 deletion(-)
 ```
@@ -1402,7 +1402,7 @@ This is important.  Once you have resolved the conflict we need to `git rebase
 ### Checking out the conflict
 
 ```bash
-➜  remote-git git:(958f33f) ✗ git status
+➜  remote-git git:(958f33f) git status
 interactive rebase in progress; onto 958f33f
 Last command done (1 command done):
    pick a1cbe6c A + 4
@@ -1538,8 +1538,8 @@ that we are ready for the next commit to be played on top.
 
 ### Solution
 ```bash
-➜  remote-git git:(958f33f) ✗ git add .
-➜  remote-git git:(958f33f) ✗ git status
+➜  remote-git git:(958f33f) git add .
+➜  remote-git git:(958f33f) git status
 interactive rebase in progress; onto 958f33f
 Last command done (1 command done):
    pick a1cbe6c A + 4
@@ -1551,7 +1551,7 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   bar.md
 
-➜  remote-git git:(958f33f) ✗ git rebase --continue
+➜  remote-git git:(958f33f) git rebase --continue
 [detached HEAD c7b9731] A + 4
  1 file changed, 1 insertion(+)
 Successfully rebased and updated refs/heads/trunk.
@@ -1660,7 +1660,7 @@ Don't forget, rebase replays the commits on top of the history change.
 
 Here is the linked `git status` call from above
 ```bash
-➜  remote-git git:(958f33f) ✗ git status
+➜  remote-git git:(958f33f) git status
 interactive rebase in progress; onto 958f33f
 Last command done (1 command done):
    pick a1cbe6c A + 4
@@ -1752,7 +1752,7 @@ position (bottom)) change.
 
 `remote-git`
 ```bash
-➜  remote-git git:(trunk) ✗ git diff
+➜  remote-git git:(trunk) git diff
 diff --git a/README.md b/README.md
 index 43b4231..0c72736 100644
 --- a/README.md
@@ -1763,8 +1763,8 @@ index 43b4231..0c72736 100644
  D
  E
  remote-change
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 6'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'A + 6'
 [trunk 6740bc7] A + 5
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -1772,8 +1772,8 @@ index 43b4231..0c72736 100644
 `hello-git`
 ```bash
 ➜  hello-git git:(trunk) vim README.md
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 5'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'A + 5'
 [trunk fac2b82] A + 6
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -1800,8 +1800,8 @@ Could not apply 6740bc7... A + 5
 ```
 
 ```bash
-➜  remote-git git:(6a3fb28) ✗ vim README.md
-➜  remote-git git:(6a3fb28) ✗ git status
+➜  remote-git git:(6a3fb28) vim README.md
+➜  remote-git git:(6a3fb28) git status
 interactive rebase in progress; onto fac2b82
 Last commands done (2 commands done):
    pick c7b9731 A + 4
@@ -1818,8 +1818,8 @@ Unmerged paths:
         both modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
-➜  remote-git git:(6a3fb28) ✗ git add .
-➜  remote-git git:(6a3fb28) ✗ git rebase --continue
+➜  remote-git git:(6a3fb28) git add .
+➜  remote-git git:(6a3fb28) git rebase --continue
 
 A + 5
 
@@ -1845,7 +1845,7 @@ Successfully rebased and updated refs/heads/trunk.
 check history
 
 ```bash
-➜  remote-git git:(6a3fb28) ✗ git log --oneline -5
+➜  remote-git git:(6a3fb28) git log --oneline -5
 52bfa5a (HEAD -> trunk) A + 5
 6a3fb28 A + 4
 fac2b82 (origin/trunk) A + 6
@@ -1904,7 +1904,7 @@ Create a change in `hello-git` and pull again.
 
 ```bash
 ➜  hello-git git:(trunk) vim README.md
-➜  hello-git git:(trunk) ✗ git diff
+➜  hello-git git:(trunk) git diff
 diff --git a/README.md b/README.md
 index c04f8e6..18b7811 100644
 --- a/README.md
@@ -1915,8 +1915,8 @@ index c04f8e6..18b7811 100644
  D
  E
  remote-change
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'small new line'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'small new line'
 [trunk 99df23c] small new line
  1 file changed, 1 insertion(+)
 ```
@@ -1946,7 +1946,7 @@ Could not apply 52bfa5a... A + 5
 Weird... lets check the conflict
 
 ```bash
-➜  remote-git git:(abcc4f4) ✗ git status
+➜  remote-git git:(abcc4f4) git status
 interactive rebase in progress; onto 99df23c
 Last commands done (2 commands done):
    pick 6a3fb28 A + 4
@@ -2226,8 +2226,8 @@ Resolve the conflict and accept _our_ change, `A + 6`
 
 ### Solution
 ```bash
-➜  remote-git git:(abcc4f4) ✗ vim README.md
-➜  remote-git git:(abcc4f4) ✗ git status
+➜  remote-git git:(abcc4f4) vim README.md
+➜  remote-git git:(abcc4f4) git status
 interactive rebase in progress; onto 99df23c
 Last commands done (2 commands done):
    pick 6a3fb28 A + 4
@@ -2244,8 +2244,8 @@ Unmerged paths:
         both modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
-➜  remote-git git:(abcc4f4) ✗ git add .
-➜  remote-git git:(abcc4f4) ✗ git rebase --continue
+➜  remote-git git:(abcc4f4) git add .
+➜  remote-git git:(abcc4f4) git rebase --continue
 [detached HEAD 226add3] A + 5
  1 file changed, 1 insertion(+), 2 deletions(-)
 Successfully rebased and updated refs/heads/trunk.
@@ -2296,7 +2296,7 @@ For this add a small change to `upstream.md`.
 ### Solution
 ```bash
 ➜  hello-git git:(trunk) vim upstream.md
-➜  hello-git git:(trunk) ✗ git diff
+➜  hello-git git:(trunk) git diff
 [trunk 980fe2d] yaya
  1 file changed, 1 insertion(+), 1 deletion(-)
 
@@ -2307,8 +2307,8 @@ index b39813a..5691d02 100644
 @@ -1 +1 @@
 -upstream change
 +upstream change -- yaya
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'yaya'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'yaya'
 ```
 
 now in `remote-git`
@@ -2453,16 +2453,16 @@ Lets create a conflict again, in README.md
 ### Solution
 ```bash
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 8'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'A + 8'
 [trunk 6ec352b] A + 7
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
 ```bash
 ➜  hello-git git:(trunk) vim README.md
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 7'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'A + 7'
 [trunk f5b13f5] A + 8
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2488,9 +2488,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 Now, lets resolve this by selecting _our_ change.
 
 ```bash
-➜  remote-git git:(trunk) ✗ git checkout --ours README.md
+➜  remote-git git:(trunk) git checkout --ours README.md
 Updated 1 path from the index
-➜  remote-git git:(trunk) ✗ git status
+➜  remote-git git:(trunk) git status
 On branch trunk
 You have unmerged paths.
   (fix conflicts and run "git commit")
@@ -2501,7 +2501,7 @@ Unmerged paths:
         both modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
-➜  remote-git git:(trunk) ✗ git add .
+➜  remote-git git:(trunk) git add .
 ➜  remote-git git:(trunk) git commit -m "merged"
 Recorded resolution for 'README.md'.
 [trunk ec6930d] merged
@@ -2646,8 +2646,8 @@ Perform the same task as before except with rebase
 remote-git
 ```bash
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 10'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'A + 10'
 [trunk 120df5e] A + 9
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2655,8 +2655,8 @@ remote-git
 hello-git
 ```bash
 ➜  hello-git git:(trunk) vim README.md
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 9'
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git commit -m 'A + 9'
 [trunk d53a122] A + 10
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2687,7 +2687,7 @@ Could not apply 120df5e... A + 9
 Perfect, we now can select _ours_ via `git checkout`
 
 ```bash
-➜  remote-git git:(d53a122) ✗ git checkout --ours README.md
+➜  remote-git git:(d53a122) git checkout --ours README.md
 Updated 1 path from the index
 ```
 
@@ -2777,7 +2777,7 @@ Instead of using `ours` use `theirs` then `--continue` the rebase.
 
 ### Solution
 ```bash
-➜  remote-git git:(d53a122) ✗ git checkout --theirs README.md
+➜  remote-git git:(d53a122) git checkout --theirs README.md
 Updated 1 path from the index
 ```
 
@@ -2865,18 +2865,18 @@ end of `README.md`
 ### Solution
 ```bash
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'Added 1 to the end'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'Added 1 to the end'
 [trunk 9ebedbd] Added 1 to the end
  1 file changed, 1 insertion(+)
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'Added 2 to the end'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'Added 2 to the end'
 [trunk 8456d89] Added 2 to the end
  1 file changed, 1 insertion(+)
 ➜  remote-git git:(trunk) vim README.md
-➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'Added 3 to the end'
+➜  remote-git git:(trunk) git add .
+➜  remote-git git:(trunk) git commit -m 'Added 3 to the end'
 [trunk f000c2e] Added 3 to the end
  1 file changed, 1 insertion(+)
 ```

@@ -287,7 +287,7 @@ echo "downstream change" >> README.md
 3. validate that the changes are tracked by the worktree
 
 ```bash
-➜  remote-git git:(trunk) ✗ git status
+➜  remote-git git:(trunk) git status
 On branch trunk
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -303,7 +303,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 4. Try to pull in origin changes
 
 ```bash
-➜  remote-git git:(trunk) ✗ git pull
+➜  remote-git git:(trunk) git pull
 
 error: cannot pull with rebase: You have unstaged changes.
 error: please commit or stash them.
@@ -383,7 +383,7 @@ This will be a long set of changes, but they are all pretty simple.
 1. stash your changes
 
 ```bash
-➜  remote-git git:(trunk) ✗ git stash
+➜  remote-git git:(trunk) git stash
 
 Saved working directory and index state WIP on trunk: 42afc8d A remote change
 ➜  remote-git git:(trunk) git status
@@ -550,7 +550,7 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{1} (c58f8ce5300e4207031438236c5732901666a43a)
-➜  remote-git git:(trunk) ✗ git commit -m 'greatest changes'
+➜  remote-git git:(trunk) git commit -m 'greatest changes'
 [trunk 7282922] greatest changes
  1 file changed, 1 insertion(+)
 ```

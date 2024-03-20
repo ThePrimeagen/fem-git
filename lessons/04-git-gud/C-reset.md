@@ -115,7 +115,7 @@ inspect state of your git branch via `git log` and `git status`
 ### Solution
 ```bash
 ➜  hello-git git:(trunk) git reset --soft HEAD~1
-➜  hello-git git:(trunk) ✗ git log -p --oneline -1
+➜  hello-git git:(trunk) git log -p --oneline -1
 d53a122 (HEAD -> trunk) A + 10
 diff --git a/README.md b/README.md
 index 68dae75..eb42c13 100644
@@ -135,7 +135,7 @@ have successfully moved back `trunk`!
 now check out the git status!
 
 ```bash
-➜  hello-git git:(trunk) ✗ git status
+➜  hello-git git:(trunk) git status
 On branch trunk
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
@@ -145,7 +145,7 @@ Changes to be committed:
 Its the revert we just got done doing!
 
 ```bash
-➜  hello-git git:(trunk) ✗ git diff --staged
+➜  hello-git git:(trunk) git diff --staged
 diff --git a/README.md b/README.md
 index eb42c13..38dc2c1 100644
 --- a/README.md
@@ -161,7 +161,7 @@ index eb42c13..38dc2c1 100644
 commit the soft reset contents
 
 ```bash
-➜  hello-git git:(trunk) ✗ git commit -m 'its not just a revert anymore'
+➜  hello-git git:(trunk) git commit -m 'its not just a revert anymore'
 [trunk ce41293] its not just a revert anymore
  1 file changed, 1 deletion(-)
 ➜  hello-git git:(trunk) git log --oneline -2
@@ -265,8 +265,8 @@ and worktree changes
 ### Solution
 ```bash
 ➜  hello-git git:(trunk) echo "HELLO" >> README.md
-➜  hello-git git:(trunk) ✗ echo "Foo" > foo.md
-➜  hello-git git:(trunk) ✗ git status
+➜  hello-git git:(trunk) echo "Foo" > foo.md
+➜  hello-git git:(trunk) git status
 On branch trunk
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -285,9 +285,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 * README.md is tracked and the changes are present in the worktree
 
 ```bash
-➜  hello-git git:(trunk) ✗ git reset --hard
+➜  hello-git git:(trunk) git reset --hard
 HEAD is now at ce41293 its not just a revert anymore
-➜  hello-git git:(trunk) ✗ git status
+➜  hello-git git:(trunk) git status
 On branch trunk
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -343,8 +343,8 @@ Destroy foo by using `git add` and `git reset --hard`
 
 ### Solution
 ```bash
-➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git reset --hard
+➜  hello-git git:(trunk) git add .
+➜  hello-git git:(trunk) git reset --hard
 HEAD is now at ce41293 its not just a revert anymore
 ➜  hello-git git:(trunk) git status
 On branch trunk
