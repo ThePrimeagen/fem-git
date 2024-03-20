@@ -1764,7 +1764,7 @@ index 43b4231..0c72736 100644
  E
  remote-change
 ➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 5'
+➜  remote-git git:(trunk) ✗ git commit -m 'A + 6'
 [trunk 6740bc7] A + 5
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -1773,7 +1773,7 @@ index 43b4231..0c72736 100644
 ```bash
 ➜  hello-git git:(trunk) vim README.md
 ➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 6'
+➜  hello-git git:(trunk) ✗ git commit -m 'A + 5'
 [trunk fac2b82] A + 6
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2454,7 +2454,7 @@ Lets create a conflict again, in README.md
 ```bash
 ➜  remote-git git:(trunk) vim README.md
 ➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 7'
+➜  remote-git git:(trunk) ✗ git commit -m 'A + 8'
 [trunk 6ec352b] A + 7
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2462,7 +2462,7 @@ Lets create a conflict again, in README.md
 ```bash
 ➜  hello-git git:(trunk) vim README.md
 ➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 8'
+➜  hello-git git:(trunk) ✗ git commit -m 'A + 7'
 [trunk f5b13f5] A + 8
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2647,7 +2647,7 @@ remote-git
 ```bash
 ➜  remote-git git:(trunk) vim README.md
 ➜  remote-git git:(trunk) ✗ git add .
-➜  remote-git git:(trunk) ✗ git commit -m 'A + 9'
+➜  remote-git git:(trunk) ✗ git commit -m 'A + 10'
 [trunk 120df5e] A + 9
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2656,7 +2656,7 @@ hello-git
 ```bash
 ➜  hello-git git:(trunk) vim README.md
 ➜  hello-git git:(trunk) ✗ git add .
-➜  hello-git git:(trunk) ✗ git commit -m 'A + 10'
+➜  hello-git git:(trunk) ✗ git commit -m 'A + 9'
 [trunk d53a122] A + 10
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -2694,7 +2694,7 @@ Updated 1 path from the index
 Before we commit, lets take a look at the contents
 
 ```bash
-A + 10
+A + 9
 D
 E
 remote-change
@@ -2784,7 +2784,7 @@ Updated 1 path from the index
 Now lets inspect the contents
 
 ```bash
-A + 9
+A + 10
 D
 E
 remote-change
@@ -2918,18 +2918,33 @@ with.  Typically, the simplest way to do this is with `HEAD~<number>`.
 `HEAD~1` means one commit back from `HEAD`.  Since we did 3 commits we would
 use `HEAD~3` to select the base where we were before our 3 commits.
 
+<br>
+<br>
+
 ```bash
 git rebase -i <commitish>
 ```
 
+<br>
+<br>
+
 That means rebase `<commitish>`, interactively, to the current commit (`HEAD`
 in this case)
 
+<br>
+<br>
+
 You will be presented an editor with all the options.  Read them carefully.
+
+<br>
+<br>
 
 #### Commitish?
 Yes, an odd word, but it makes sense when you think about it.  There is a whole
 language to describe commits, HEAD~1 is a very common version of this.
+
+<br>
+<br>
 
 That means with rebase you could provide the exact commit, or a relative path
 to the commit hash (HEAD~1)
@@ -2959,6 +2974,9 @@ to understand how to squash.  It may take one or more tries.  Remember, if you
 goof up you can always use reflog to get back to the original commit you
 started at.
 
+<br>
+<br>
+
 validate that you have created a squashed commit out of the 3 commits
 
 <br>
@@ -2981,13 +2999,26 @@ validate that you have created a squashed commit out of the 3 commits
 
 ### Solution
 execute the following:
+
+<br>
+<br>
+
 ```bash
 git rebase -i HEAD~3
 ```
 
+<br>
+<br>
+
 This means we will interactive rebase the last 3 commits.
 
+<br>
+<br>
+
 You should get presented with the following
+
+<br>
+<br>
 
 ```bash
 pick 9ebedbd Added 1 to the end
@@ -3023,14 +3054,24 @@ pick f000c2e Added 3 to the end
 #
 ```
 
+<br>
+<br>
+
 The key line in the text comments is
 ```
 # s, squash <commit> = use commit, but meld into previous commit
 ```
 
+<br>
+<br>
+
+
 This means that if we replace `pick` with `s` or `squash` we will squash that
 commit, or `meld into previous commit`.  Meaning make the previous commit and
 squash commit become one commit.
+
+<br>
+<br>
 
 ```bash
 pick 9ebedbd Added 1 to the end
@@ -3038,12 +3079,18 @@ squash 8456d89 Added 2 to the end
 squash f000c2e Added 3 to the end
 ```
 
+<br>
+<br>
+
 We could have also done
 ```bash
 pick 9ebedbd Added 1 to the end
 s 8456d89 Added 2 to the end
 s f000c2e Added 3 to the end
 ```
+
+<br>
+<br>
 
 Save and exit and git will present a new screen
 
@@ -3078,8 +3125,14 @@ Added 3 to the end
 #
 ```
 
+<br>
+<br>
+
 Now you have the chance to create a whole new commit message for the newly
 combined commits.
+
+<br>
+<br>
 
 Lets edit the message slightly
 
@@ -3106,6 +3159,9 @@ Lets edit the message slightly
 #
 ```
 
+<br>
+<br>
+
 Once you save, you should see something similar:
 
 ```bash
@@ -3115,6 +3171,9 @@ Once you save, you should see something similar:
  1 file changed, 3 insertions(+)
 Successfully rebased and updated refs/heads/trunk.
 ```
+<br>
+<br>
+
 
 Lets look at our logs
 
@@ -3128,6 +3187,10 @@ f5b13f5 A + 8
 6ec352b A + 7
 c28b45c A + 5
 ```
+
+<br>
+<br>
+
 
 Look at that!  Our three commits became one!  Squashing can be quite an
 effective technique to keep the history clean and allow you to make many small
