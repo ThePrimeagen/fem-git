@@ -11,10 +11,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-ol,
-ul {
+h6 {
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -509,4 +506,15 @@ ol.sections-name .lesson-details {
   font-size: 24px;
   line-height: 24px;
   padding: 0px 5px;
+}
+
+code {
+  background-color: #f2f2f2;
+  color: #000;
+  padding: .1rem .3rem;
+}
+
+.hljs {
+  background-color: #f2f2f2;
+  color: #000;
 }

@@ -181,7 +181,7 @@ Obviously this is dangerous as we have just altered history of a branch
 
 The basics of soft is to reset the history to the point you want (HEAD~1) and
 the index and worktree will contain the changes whence you came (Our revert in
-this example).  We could of used soft reset and went back several commits and
+this example).  We could have used soft reset and went back several commits and
 we would have all their changes.
 
 <br>
@@ -287,7 +287,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Notice that it destroyed all work to README.md.  That is because --hard will
 reset _ALL_ work in the worktree and index (staging area).  So even if we had
-README.md `git add`d it would still have been reseted back to the HEAD state.
+ `git add README.md` it would still have been reset back to the HEAD state.
 
 foo.md did not get destroyed because git is not tracking the file in any way.
 

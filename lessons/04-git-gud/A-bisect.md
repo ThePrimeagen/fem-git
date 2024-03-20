@@ -69,7 +69,7 @@ searching can provide a fast and powerful mechanism to find the correct change.
 ### Cons
 * The file/module in which contains the bug changes frequently
 * Poor/No commit messages
-* You cannot boil down the bug to a specific key word (e.g.: Widget)
+* You cannot boil down the bug to a specific key word (e.g. Widget)
 * If there are too many commits that match searching it can much more
   cumbersome than using other methods
 * You simply don't know any keywords to narrow down your search
@@ -122,7 +122,7 @@ repo.
 
 You should see something similar if everything went well
 ```
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
  FAIL  src/index.spec.js > foo
 AssertionError: expected 140 to deeply equal 138
@@ -141,12 +141,13 @@ AssertionError: expected 140 to deeply equal 138
       7| }, 35000);
       8|
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
 
  Test Files  1 failed (1)
       Tests  1 failed (1)
    Start at  15:46:36
-   Duration  30.46s (transform 44ms, setup 0ms, collect 18ms, tests 30.11s, environment 0ms, prepare 107ms)
+   Duration  30.46s (transform 44ms, setup 0ms, collect 18ms, tests 30.11s, 
+   environment 0ms, prepare 107ms)
 ```
 
 #### Observation
@@ -171,7 +172,7 @@ we know our function foo and test foo are failing
 <br>
 
 ## git log
-### Exercise
+### Problem
 Use `man git-log` and search for an option to search through logs
 
 #### A bonus info
@@ -195,7 +196,7 @@ diffs of the logs could be useful too!
 <br>
 <br>
 
-### Answer
+### Solution
 
 `git log` comes with a `--grep` option
 
@@ -718,6 +719,24 @@ known good commit.  The point is that bisect does the searching, not you.
 4. test
 5. `git bisect <good | bad>` depending on how the test runs
 6. goto 4 until git tells you the commit
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Problem
 Use the first commit of the repo and the current tip of `master` and find the

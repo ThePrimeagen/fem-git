@@ -35,7 +35,7 @@ you are in flow state.
 Just then, slack pings, lo and behold an emergency investigation is needed on
 `main`.
 
-1. You can git add . any non tracked files to the index (staging area) and then
+1. You can `git add .` any non tracked files to the index (staging area) and then
    stash this change then change branches to do the investigation.
 1. You can commit this change and change branches
 1. Use Worktrees
