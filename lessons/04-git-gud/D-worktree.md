@@ -40,9 +40,6 @@ Just then, slack pings, lo and behold an emergency investigation is needed on
 1. You can commit this change and change branches
 1. Use Worktrees
 
-Worktrees are not pure upsides though.  There is a bit of work you need to be
-prepared for.
-
 <br>
 <br>
 <br>
@@ -64,10 +61,11 @@ prepared for.
 ### What is a worktree?
 Generally when we say `worktree` we mean a `linked working tree`
 
-When you `git init` a repo it creats the `main working tree`.  This is why
-other trees representing a commit but without all the git information are called
-`linked working trees` because they are a state of the repo at a commit + a
-pointer to the main tree (with the git information)
+When you `git init` a repo it creats the `main working tree`.  A `linked
+working trees` is a just another tree much like main working tree just without
+all the git history within the `.git` directory.  In fact, the `.git` directory
+is not a directory at all, but just a file pointing to the `main working tree`
+directory.
 
 <br>
 <br>
@@ -109,12 +107,18 @@ git worktree remove ../foo-bar
 ```
 2. you can use `rm -rf` and `git worktree prune`
 
+<br>
+<br>
+
 #### Benefits
 they are cheap to make since they don't need `.git` history.  They are just a
 pointer.  They are just slightly more expensive than a branch.  But you get a
 commit to work on that is outside your main working tree.  That means if you
 need to pivot quickly you don't have to commit, stash, or anything, just create
 a new linked working tree!
+
+<br>
+<br>
 
 #### Cons
 if each branch has a high setup cost.  like if your npm install takes 100
@@ -323,6 +327,31 @@ That means to delete, just run prune
 ➜  hello-git git:(trunk) git worktree list
 /home/ThePrimeagen/personal/hello-git  7488b35 [trunk]
 ```
+
+<br>
+<br>
+
+### How did git know it was prunable?
+```bash
+➜  hello-git git:(trunk) ls -la .git/worktrees
+total 12
+drwxrwxr-x 3 mpaulson mpaulson 4096 Mar 20 12:27 .
+drwxrwxr-x 9 mpaulson mpaulson 4096 Mar 20 12:27 ..
+drwxrwxr-x 3 mpaulson mpaulson 4096 Mar 20 12:27 foo-bar
+➜  hello-git git:(trunk) ls -la .git/worktrees/foo-bar
+total 32
+drwxrwxr-x 3 mpaulson mpaulson 4096 Mar 20 12:27 .
+drwxrwxr-x 3 mpaulson mpaulson 4096 Mar 20 12:27 ..
+-rw-rw-r-- 1 mpaulson mpaulson    6 Mar 20 12:27 commondir
+-rw-rw-r-- 1 mpaulson mpaulson   37 Mar 20 12:27 gitdir
+-rw-rw-r-- 1 mpaulson mpaulson   24 Mar 20 12:27 HEAD
+-rw-rw-r-- 1 mpaulson mpaulson  289 Mar 20 12:27 index
+drwxrwxr-x 2 mpaulson mpaulson 4096 Mar 20 12:27 logs
+-rw-rw-r-- 1 mpaulson mpaulson   41 Mar 20 12:27 ORIG_HEAD
+```
+
+the `gitdir` no longer exists, therefore we can prune this worktree!
+
 
 <br>
 <br>

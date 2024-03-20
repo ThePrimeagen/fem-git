@@ -46,13 +46,18 @@ index eb42c13..38dc2c1 100644
 
 Now lets say we need to continue to edit our previous commit.  We have two options.
 
-1. we could make changes and use `commit --amend`
+1. we could make changes and use `commit --amend`.  If you are not familiar
+   with `git commit --amend` it allows you to meld the current staged changes
+   into the previous commit and edit the message.
 1. we could use `git reset --soft HEAD~1` to move `trunk` back one commit and
    alter the index and worktree to match the contents of the commit.
 
+<br>
+<br>
+
 #### Note
-`git commit --amend` will take your current staged changes and apply them to
-the current commit, changing the hash (since contents have been changed).
+Both operations will change the sha since we are changing the graph
+fundamentally
 
 <br>
 <br>
@@ -76,9 +81,15 @@ the current commit, changing the hash (since contents have been changed).
 ### Problem
 Use `git reset --soft HEAD~1` to move `trunk` back one commit.  This should
 make the working state of your branch contain the changes of the revert instead
-of the revert commit.
+of the revert commit being in the graph
+
+<br>
+<br>
 
 inspect state of your git branch via `git log` and `git status`
+
+<br>
+<br>
 
 `git commit` back the reverted change with a new message
 

@@ -7,10 +7,23 @@ description: "Sometimes you got to revert"
 Often you have one of two choices to make: push forward or roll back.  Rolling
 back can often require you to revert changes made to the main branch.
 
-This is different than `git restore` since we are not restoring a file to a
-previous commit, but instead we are removing an entire commit from the graph.
+<br>
+<br>
 
-If the commit is matter, this is the anti-matter move
+#### Note
+In case you are confused about revert and restore
+
+<br>
+<br>
+
+This is different than `git restore` since we are not restoring a file to a
+previous commit, but instead we are commiting an inverted commit to the
+graph to effectively "remove" a commit.
+
+<br>
+<br>
+
+If the commit is matter, git revert is the anti-matter
 
 <br>
 <br>
@@ -77,8 +90,10 @@ removing it, check the contents of the commit via `log` with `-p`!
 <br>
 
 ### Solution
+One thing we could do
+
 ```bash
-➜  hello-git git:(trunk) git log --oneline
+➜  hello-git git:(trunk) git log -p --grep E
 d53a122 (HEAD -> trunk) A + 10
 ec6930d merged
 f5b13f5 A + 8
@@ -103,6 +118,9 @@ a665b08 E
 79c5076 D
 cb75afe A
 ```
+
+<br>
+<br>
 
 Using log -p to look at the contents of E using `--grep` and `-p`
 ```bash
@@ -179,6 +197,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 `git status` shows the conflict is within README.md
 
+<br>
+<br>
+
 ```bash
 A + 10
 D
@@ -191,13 +212,23 @@ downstream change
 ```
 
 You can see right away that one change set contains
+
+<br>
+<br>
+
 ```bash
 E
 remote-change
 downstream change
 ```
 
+<br>
+<br>
+
 and the other contains nothing (our revert commit).
+
+<br>
+<br>
 
 This means that git cannot tell how to revert this commit cleanly.  We can help
 by keeping the contents below E but removing E
@@ -222,6 +253,9 @@ by keeping the contents below E but removing E
 
 ### Problem
 Finish the revert by fixing the conflict then use `git revert --continue`
+
+<br>
+<br>
 
 use git log to see what the revert looks like
 
