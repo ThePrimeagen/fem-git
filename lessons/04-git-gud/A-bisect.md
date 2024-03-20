@@ -146,7 +146,7 @@ AssertionError: expected 140 to deeply equal 138
  Test Files  1 failed (1)
       Tests  1 failed (1)
    Start at  15:46:36
-   Duration  30.46s (transform 44ms, setup 0ms, collect 18ms, tests 30.11s, 
+   Duration  30.46s (transform 44ms, setup 0ms, collect 18ms, tests 30.11s,
    environment 0ms, prepare 107ms)
 ```
 
@@ -173,10 +173,18 @@ we know our function foo and test foo are failing
 
 ## git log
 ### Problem
-Use `man git-log` and search for an option to search through logs
+Use `man git-log` and search for an option to search through logs.
+
+<br>
+<br>
 
 #### A bonus info
 diffs of the logs could be useful too!
+
+<br>
+<br>
+
+**hint**: often search is referred to as grep
 
 <br>
 <br>
@@ -295,9 +303,11 @@ index 4f35883..e8052cc 100644
 <br>
 
 
-Now this could be a "lucky" search here.  We happened to find it but in the
-real world this may not be nearly so easy.  But its good to know the tool
-exists.
+Now this is a "lucky" search.  We happened to find it but in the real world
+this may not be nearly so easy.  But its good to know the tool exists.
+
+<br>
+<br>
 
 You could image that each testing run takes 30 minutes, so spending 5 minutes
 to potentially find the bug instead of 3 hours is a trade off i would make any
@@ -327,6 +337,9 @@ One flaw in our previous search is that we were looking for occurrences of a
 word in commit messages which may not be the most efficient way to look.  We
 know the file that is probably the problem, we could always check its history.
 
+<br>
+<br>
+
 To search files via `git log`
 ```bash
 git log -p -- file1 file2...
@@ -350,9 +363,8 @@ git log -p -- file1 file2...
 <br>
 <br>
 
-
 ### Problem
-Search through potential files using
+Use file mechanism in `git log` to see if it helps the search
 
 <br>
 <br>
@@ -378,10 +390,22 @@ Search through potential files using
 git log -p -- src/index.js
 ```
 
+<br>
+<br>
+
 You may not notice, but this method only shows changes to that specific file
 instead of the full patch change.  This allows for a bit faster perusing of the
 file and its change.  Again, in this trivial example, it is easy to spot the
 offending commit!
+
+<br>
+<br>
+
+#### Note
+A nice part about file changes is that sometimes you may find a bug was caused
+due to another bug, a hydrabug.  Perhaps there was a production issue and a
+jira ticket linked to a change that is now causing a new issue.  History can be
+nice to search through.
 
 <br>
 <br>
@@ -409,6 +433,11 @@ will be very useful.  The nice part is that all the information you need is in
 
 <br>
 <br>
+
+`-S` allows you to search for text in the _change_ itself!
+
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -431,15 +460,30 @@ isn't possible to simply look and understand.  So what do we do?  Well we need
 to search through the repository for the offending commit that changed the
 code.
 
-To perform `biscet` you need two things to be true
+<br>
+<br>
+
+To perform `bisect` you need two things to be true
+
+<br>
+<br>
 
 #### Property 1
 All commits are ordered.  They are ordered by time.
 
+<br>
+<br>
+
 #### Property 2
-You know a commit that the issue is not present
+You know a commit that the issue is not present or can find it easily enough
+
+<br>
+<br>
 
 The reason property 1 is so important is the following:
+
+<br>
+<br>
 
 * If there is a problem that is currently plaguing the project and you go back
 10 commits and observe the problem is still there. You don't have to check 9
@@ -613,16 +657,36 @@ All commits between `c` and `b` are bad.  Which results in the following graph
 ### Observation
 we can repeat this process to find our offending commit that broke the test!
 
+<br>
+<br>
+
 To repeat we need to select new bounds. So instead of `a` and `b`, we repeat
 with the bounds of
+
+<br>
+<br>
 
 * if `c` is good, `c` and `b`
 * if `c` is bad, `a` and `c`
 
+<br>
+<br>
+
 We have cut our search space in half!
+
+<br>
+<br>
 
 If you don't recognize this algorithm it is the same principal that guides
 binary search.
+
+<br>
+<br>
+
+### Free Algorithms Course
+I consider this my best course i have ever created and its free FOREVER
+
+[Algorithms on FEM](https://frontendmasters.com/courses/algorithms/)
 
 <br>
 <br>
@@ -713,28 +777,13 @@ known good commit.  The point is that bisect does the searching, not you.
 
 ### The Basics of Bisect
 
-1. set the known good commit `git bisect start`
+1. start git bisect `git bisect start`
 2. set the known bad commit `git bisect bad`, uses the current one
-3. set the known bad commit `git bisect good <commit>`
+3. set the known good commit `git bisect good <commit>`
 4. test
 5. `git bisect <good | bad>` depending on how the test runs
 6. goto 4 until git tells you the commit
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 
