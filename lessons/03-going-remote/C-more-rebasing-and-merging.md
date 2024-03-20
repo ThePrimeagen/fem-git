@@ -1064,6 +1064,11 @@ To ensure everything continues on going smooth, lets update `trunk` in
 
 <br>
 <br>
+
+We don't want more merge commits...
+
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -1108,24 +1113,82 @@ To ../hello-git
  ! [remote rejected] trunk -> trunk (branch is currently checked out)
 error: failed to push some refs to '../hello-git'
 ```
+<br>
+<br>
 
-What happened here?  Well if you look at the error message
+### What happened here?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+### Observation
+
 ```bash
 ...
  ! [remote rejected] trunk -> trunk (branch is currently checked out)
 ```
+
+<br>
+<br>
 
 We cannot push to a branch that is the current branch of the target repo.  This
 makes sense as it would cause your current branch to change out of underneath
 the repo that is currently being used, and if there are pending changes it
 could cause further havoc.
 
+<br>
+<br>
+
+### What do we do?
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Change branches!
+
 ```bash
 ➜  hello-git git:(trunk) git checkout bar
 Switched to branch 'bar'
 ```
 
+<br>
+<br>
+
 Now lets try again
+
+<br>
+<br>
 
 ```bash
 ➜  remote-git git:(trunk) git push origin trunk
@@ -1160,8 +1223,13 @@ To ../hello-git
 ### Problem
 Lets create another conflict but resolve this via `rebase` instead of `merge`.
 
-1. create change in `hello-git` and `A + 2` -> `A + 3`.  Create another change in `bar.md`
+<br>
+<br>
+
+1. create change in `hello-git` and `A + 2` -> `A + 3`.
+1. **Create another change in `bar.md` LAST LINE** in `hello-git`
 1. create change in `remote-git` and `A + 2` -> `A + 4`
+1. **Create another change in `bar.md` FIRST LINE** in `remote-git`
 1. rebase `remote-git`'s `trunk` with `hello-git`'s and create the conflict
 
 <br>
@@ -1293,13 +1361,25 @@ Could not apply a1cbe6c... A + 4
 If you read carefully you will see that bar was able to be `Auto-merged` where
 as README was not able to be merged
 
+<br>
+<br>
+
 #### NOTICE
 We can `git rebase --abort` due to the conflict (much like the `git merge
 --abort`).
 
+<br>
+<br>
+
 #### NOTICE
 This is important.  Once you have resolved the conflict we need to `git rebase
 --continue` instead of `git commit`.
+
+<br>
+<br>
+
+#### GIT FU
+* If you did use `git reset --soft HEAD~1` and then `git rebase --continue`
 
 <br>
 <br>
@@ -1342,8 +1422,14 @@ Unmerged paths:
         both modified:   README.md
 ```
 
+<br>
+<br>
+
 You will notice that `bar.md` is marked (green if you have coloring) committed
 while `README.md` is unmerged.  Lets fix our conflict in README.md
+
+<br>
+<br>
 
 Opening up README.md shows us the following
 
@@ -1394,13 +1480,14 @@ downstream change
 <br>
 <br>
 
-
 ### Answer
 This was pretty tricky question. noticed that A + 3, from `hello-git` now takes
 the top spot and `A + 4` takes the bottom.
 
-Which means during a rebase `ours` code becomes `theirs` and `theirs` becomes
-`ours`.  We will cover this more indepth later
+<br>
+<br>
+
+What are the steps of rebase?
 
 <br>
 <br>
@@ -1422,6 +1509,9 @@ Which means during a rebase `ours` code becomes `theirs` and `theirs` becomes
 
 ### Problem
 Choose `our` conflict, `hello-git`'s change. (A + 3)
+
+<br>
+<br>
 
 #### Remember
 do not commit. We `git rebase --continue`.  This signals to the rebase command
@@ -1482,6 +1572,9 @@ A + 4
 #
 ```
 
+<br>
+<br>
+
 Since there are no more commits that cause conflicts the rebase is complete.
 Lets take a quick look at our logs
 
@@ -1537,6 +1630,9 @@ d8a2f95 Merge branch 'trunk' of ../hello-git into trunk
 
 You will see our A + 4 and you will see origin's A + 3 "underneath" or previous
 in history.
+
+<br>
+<br>
 
 #### Note
 There is no merge commit.  People really seem to like this cleaner history.

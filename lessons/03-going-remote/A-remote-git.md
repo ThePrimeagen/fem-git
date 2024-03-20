@@ -770,6 +770,14 @@ There are two strategies for `rebase`ing changes.
 ➜  remote-git git:(trunk) git config --add --global pull.rebase true
 ```
 
+<br>
+<br>
+
+**Please don't update that setting now though**
+
+<br>
+<br>
+
 Now we rebase remote code every time.  You don't have to set this if you don't
 like the idea of rebasing from authority
 
