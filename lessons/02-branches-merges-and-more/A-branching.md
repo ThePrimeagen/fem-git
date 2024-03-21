@@ -420,7 +420,7 @@ Switched to branch 'foo'
 
 ### Problem
 Now that you are `foo` lets create another commit with message `B` and a new
-line added to `README.md` of "B"
+line added to `second.md` of "B"
 
 <br>
 <br>
