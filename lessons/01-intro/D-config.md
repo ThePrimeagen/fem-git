@@ -65,7 +65,7 @@ different keynames and we will use this for our platform for exploration.
 
 I'll use:
 
-```
+```bash
 fem.dev is great
 fem.marc is ok
 fem.git would

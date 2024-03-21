@@ -6,7 +6,7 @@ description: "The most important topic to any engineer to argue about"
 ## Prereq:
 You have to have the previous section finished and have the same state
 
-```
+```bash
    B --- C   foo
  /
 A            trunk
@@ -44,7 +44,8 @@ Please add `D` and `E` in the same way we added `B` and `C` to `trunk`
 <br>
 
 Desired State:
-```
+
+```bash
    B --- C    foo
  /
 A --- D --- E trunk
@@ -87,7 +88,7 @@ Switched to branch 'trunk'
 
 Now we have the following setup
 
-```
+```bash
    B --- C    foo
  /
 A --- D --- E trunk
@@ -242,7 +243,8 @@ Finally, when you are done use `git log` to see the resulting state of
 <br>
 
 #### State of your git
-```
+
+```bash
    B --- C    foo
  /
 A --- D --- E trunk-merge-foo
@@ -291,7 +293,8 @@ git checkout trunk-merge-foo
 
 #### Fun fact
 From `man git-switch` you can see the following:
-```
+
+```bash
        git switch [<options>] (-c|-C) <new-branch> [<start-point>]
 ```
 
@@ -441,7 +444,7 @@ commit, a merge commit, `ccf9a73`.
 ### Problem
 Create the following git setup:
 
-```
+```bash
               X - Y     bar
              /
 A --- D --- E           trunk
@@ -654,7 +657,7 @@ With the following repo setup
 <br>
 <br>
 
-```
+```bash
    B --- C                foo
  /
 A --- D --- E --- X --- Y trunk
@@ -669,7 +672,7 @@ point to `Y` instead of `A`.
 <br>
 <br>
 
-```
+```bash
                            B --- C                foo
                          /
 A --- D --- E --- X --- Y                         trunk

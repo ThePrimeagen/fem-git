@@ -437,7 +437,8 @@ some differences now!
 <br>
 
 This should be the setup you should have at the end of this
-```
+
+```bash
     B - C foo
    /
   A       trunk
