@@ -31,6 +31,27 @@ a git repo.
 <br>
 <br>
 
+### Draw Git
+(use excalidraw)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## Configuring your git experience
 Before we begin, we need to configure git to contain _your_ information.  Every
 commit comes with the author's name and email.  So to ensure you get proper
@@ -106,8 +127,8 @@ them.
 Lets pretend that when i execute:
 
 ```bash
-➜  personal git config --get user.name
-➜  personal
+➜  git config --get user.name
+➜
 ```
 
 I get nothing out, therefore i need to add both my `user.name` and `user.email`

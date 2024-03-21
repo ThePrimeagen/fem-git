@@ -287,6 +287,45 @@ If we try to cat out the commit file we see nothing useful
 x[ )@͢<41M]V%qP9C'*"iܣUfmA"DqFx3-C(U˅-YIw]0y6y1  @uڟ`V?9r%
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### Remember
+ALL of git state is stored in files.  everything.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ### The Tools of the Plumber
 There are ways to inspect files within the git's data store.
 

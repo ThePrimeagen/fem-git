@@ -3,6 +3,26 @@ title: "Introduction to Git"
 description: "This is git, say hello"
 ---
 
+## Git
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## WHOAMI
 The name is ThePrimeagen
 
@@ -16,7 +36,7 @@ The name is ThePrimeagen
 <br>
 
 <a href="https://youtube.com/ThePrimeTimeagen">
-    ThePrimeagen - Engineering News
+    ThePrimeTimeagen - Engineering News
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 124" width="32" height="32">
         <path fill="#FF0000" d="M172.267 20.22c-2.029-7.717-7.974-13.786-15.69-15.814C143.915 1.135 88 1.135 88 1.135s-55.914 0-68.576 3.271c-7.717 2.029-13.662 8.097-15.691 15.814C1.135 32.882 1.135 62 1.135 62s0 29.118 2.598 41.78c2.029 7.717 7.974 13.786 15.691 15.814C32.086 122.865 88 122.865 88 122.865s55.915 0 68.577-3.271c7.716-2.028 13.661-8.097 15.69-15.814C174.865 91.118 174.865 62 174.865 62s0-29.118-2.598-41.78zM70.711 85.573V38.427l36.106 23.573-36.106 23.573z"/>
     </svg>
@@ -50,14 +70,7 @@ The name is ThePrimeagen
 <br>
 
 ## The Goal
-The goal of this course is to be a course for anyone with no knowledge or a
-decent amount.  We will step by step walk through quite a few operations and
-use `log` and `reflog` and other parts of git to understand it.
-
-<br>
-<br>
-
-Its designed to be a course for all levels of git knowledge
+To teach your git well.  Not all the commands, but enough that you git it
 
 <br>
 <br>
@@ -78,14 +91,10 @@ Its designed to be a course for all levels of git knowledge
 <br>
 
 ## Before we git we man
-One of the best parts of using git is that all the documentation and all of the
-features are extremely well documented.  This wasn't always the case.  In fact
-git was known as being the most obtusely documented tool of all time, but alas
-times have changed.
+man has all the info
 
-That means if you ever forget the exact command, you want to peruse for new
-ways to use git, or you just need a good bed time reading, git's full
-documentation is a few keyboard clicks away.
+<br>
+<br>
 
 Lets execute the following command.  This will open up the man page for man.
 If you don't know, man stands for manual.
@@ -93,6 +102,9 @@ If you don't know, man stands for manual.
 ```bash
 man man
 ```
+
+<br>
+<br>
 
 Or to see all the git commands
 

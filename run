@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+git config unset --global user.name
+git config unset --global user.email
+
+
+rm -rf /home/mpaulson/personal/my-first-git-repo/
+rm -rf /home/mpaulson/personal/hello-git/
+rm -rf /home/mpaulson/personal/remote-git/
+
+git config --global --unset init.defaultBranch
+
