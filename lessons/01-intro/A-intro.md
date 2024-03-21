@@ -516,3 +516,25 @@ way to learn is to do it yourself.
 <br>
 <br>
 
+## We will move fast
+If you have questions i'll ask throughout and will answer.  I have been using
+git for 10 years so there is blind spots.  Let me know
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
