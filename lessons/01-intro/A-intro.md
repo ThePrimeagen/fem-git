@@ -154,7 +154,6 @@ is it.
 In man pages you see **bold** terms.  Search for the term bold and find out
 what it means.  Here is an example, from `man man`, of bolded terms
 
-
 ```bash
 SYNOPSIS
        man [man options] [[section] page ...] ...
@@ -185,7 +184,7 @@ SYNOPSIS
 
 ### Solution
 
-```
+```text
        bold text          type exactly as shown.
        italic text        replace with appropriate argument.
        [-abc]             any or all arguments within [ ] are optional.

@@ -121,7 +121,8 @@ repo.
 ### Results
 
 You should see something similar if everything went well
-```
+
+```bash
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
  FAIL  src/index.spec.js > foo
@@ -510,7 +511,7 @@ commits ago its present.  Therefore its present betwixt HEAD and 10 commits ago
 
 This implies a very important concept
 
-```
+```bash
   ----------------------------------
   |                                |
   a ---------- unknown ----------- b
@@ -519,7 +520,7 @@ This implies a very important concept
 If `a` is working commit, and `b` doesn't work, select the middle commit
 between `a` and `b`, call it `c`
 
-```
+```bash
   ---------------------------------
   |                               |
   a -- unknown -- c -- unknown -- b
@@ -547,11 +548,13 @@ between `a` and `b`, call it `c`
 
 ### Problem
 given:
-```
+
+```bash
   ---------------------------------
   |                               |
   a -- unknown -- c -- unknown -- b
 ```
+
 if `c` turns out to be a commit that passes the test (it works) what observation can we make about the above graphic?
 
 <br>
@@ -576,7 +579,7 @@ if `c` turns out to be a commit that passes the test (it works) what observation
 ### Solution
 All commits between `a` and `c` are good.  Which results in the following graph
 
-```
+```bash
   ----------------------------------
   |                                |
   a --- good --- c --- unknown --- b
@@ -603,7 +606,8 @@ All commits between `a` and `c` are good.  Which results in the following graph
 
 ### Problem
 given
-```
+
+```bash
   ---------------------------------
   |                               |
   a -- unknown -- c -- unknown -- b
@@ -630,7 +634,8 @@ If `c` fails, what observations can we made about the original graph?
 
 ### Solution
 All commits between `c` and `b` are bad.  Which results in the following graph
-```
+
+```bash
   ---------------------------------
   |                               |
   a --- unknown --- c --- bad --- b

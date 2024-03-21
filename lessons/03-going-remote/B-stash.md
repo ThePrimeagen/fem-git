@@ -222,6 +222,7 @@ echo "upstream change" >> upstream.md
 ```
 
 2. add a small change to `remote-git`  don't commit
+
 ```bash
 echo "downstream change" >> README.md
 ```

@@ -392,7 +392,7 @@ We want to trace the steps of git from untracked to tracked.
 <br>
 
 #### Command reminder
-```
+```bash
 git add <path-to-file | pattern>
 git commit -m '<message>'
 git status
