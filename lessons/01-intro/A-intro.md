@@ -139,7 +139,7 @@ is it.
 * `j` goes one line down
 * `k` goes one line up
 * `d` goes one half page down
-* `u` goes one half page down
+* `u` goes one half page up
 * `/<term>` will search for term
 * `n` goes to next search term
 * `N` goes to prev search term
